@@ -150,7 +150,6 @@ include 'includes/templates/header.php';
 						<tr>
 							<th>No.</th>
 							<th>Fecha Solicitud</th>
-							<th>Clase</th>
 							<th>Nombre Completo</th>
 							<th>Gestionar</th>
 						</tr>
@@ -166,9 +165,6 @@ include 'includes/templates/header.php';
 								</td>
 								<td>
 									<p><?php echo $solicitud['hora_solicitud'] . " | " . date("d-m-Y", strtotime($solicitud['fecha_solicitud'])); ?></p>
-								</td>
-								<td>
-									<p><?php echo $solicitud['clase'] ?></p>
 								</td>
 								<td>
 									<p><?php echo $solicitud['nombre_completo'] ?></p>

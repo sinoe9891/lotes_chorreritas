@@ -125,7 +125,7 @@
 			<div class="menu">
 				<div class="top-bar-left">
 					<div class="logo-header">
-						<a id="logo" href="https://www.zamorano.edu/graduados/" title="Universidad Zamorano">
+						<a id="logo" href="https://kidan.dev/chorreritas/index.php" title="Universidad Zamorano">
 							<img class="logo-main" src="images/logo-direccion-02.png" srcset="images/logo-direccion-02.png" alt="logo-02" style="max-height: 60px;">
 						</a>
 					</div>

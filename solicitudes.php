@@ -60,7 +60,7 @@ include 'includes/templates/header.php';
 			<div class="img-formulario">
 				<!-- <img src="images/icons/perfil.svg" alt=""> -->
 				<div class="titulo-form">
-					<h3>Solicitudes de actualización</h3>
+					<h3>Precontratos de Compra Venta de Lote</h3>
 					<?php
 					$solicitudes = obtenerSolicitudes('id_temp');
 					?>
@@ -138,15 +138,15 @@ include 'includes/templates/header.php';
 					$mes = $_GET['mesSolicitud'];
 					$mesSolicitud = ($mes - (1));
 					$meses = array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
-					$consulta = $conn->query("SELECT * FROM temporal_update_210618 ORDER BY fecha_solicitud DESC, hora_solicitud DESC");
+					$consulta = $conn->query("SELECT * FROM ficha_directorio ORDER BY fecha_solicitud DESC, hora_solicitud DESC");
 			?>
 					<div class="img-formulario">
 						<div class="titulo-form">
 							<?php
-							if ($consulta->num_rows > 1 || $consulta->num_rows = 0) {
-								echo '<h3>' . $solicitudes->num_rows . ' total de solicitudes</h3>';
+							if ($consulta->num_rows > 1 || $consulta->num_rows <= 0) {
+								echo '<h3>' . $consulta->num_rows . ' total de precontratos</h3>';
 							} else {
-								echo '<h3>' . $solicitudes->num_rows . ' solicitud</h3>';
+								echo '<h3>' . $consulta->num_rows . ' solicitud</h3>';
 							}
 							?>
 						</div>
@@ -155,7 +155,6 @@ include 'includes/templates/header.php';
 						<tr>
 							<th>No.</th>
 							<th>Fecha Solicitud</th>
-							<th>Clase</th>
 							<th>Nombre Completo</th>
 							<th>Gestionar</th>
 						</tr>
@@ -167,8 +166,8 @@ include 'includes/templates/header.php';
 							// $notaDuelo = $row['fechaNotaDuelo'];
 							// $hora_solicitud = $row['hora_solicitud'];
 						?>
-							<tr id="solicitud:<?php echo $solicitud['id_temp'] ?>">
-								<!-- <td><p><?php echo $solicitud['id_temp']; ?></p></td> -->
+							<tr id="solicitud:<?php echo $solicitud['id'] ?>">
+								<!-- <td><p><?php echo $solicitud['id']; ?></p></td> -->
 								<td>
 									<p><?php echo $numero++; ?></p>
 								</td>
@@ -176,14 +175,11 @@ include 'includes/templates/header.php';
 									<p><?php echo $solicitud['hora_solicitud'] . " | " . date("d-m-Y", strtotime($solicitud['fecha_solicitud'])); ?></p>
 								</td>
 								<td>
-									<p><?php echo $solicitud['clase'] ?></p>
-								</td>
-								<td>
-									<p><?php echo $solicitud['nombres'] . " " . $solicitud['apellidos'] ?></p>
+									<p><?php echo $solicitud['nombre_completo'] ?></p>
 								</td>
 								<td>
 									<div class="acciones">
-										<a href="ver-solicitud.php?ID=<?php echo $solicitud['id_temp'] ?>" target="_self"><i class="fas fa-eye"></i></a>
+										<a href="ver-solicitud.php?ID=<?php echo $solicitud['id'] ?>" target="_self"><i class="fas fa-eye"></i></a>
 										<i class="far fa-check-circle <?php echo ($solicitud['estado'] === '1' ? 'completo' : '') ?>"></i>
 										<i class="fas fa-trash"></i>
 									</div>
@@ -195,7 +191,7 @@ include 'includes/templates/header.php';
 						$mes = $_GET['mesSolicitud'];
 						$mesSolicitud = ($mes - (1));
 						$meses = array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
-						$consulta = $conn->query("SELECT * FROM temporal_update_210618 WHERE MONTH(fecha_solicitud) = '$mes' AND YEAR(NOW()) ORDER BY fecha_solicitud DESC, hora_solicitud DESC");
+						$consulta = $conn->query("SELECT * FROM ficha_directorio WHERE MONTH(fecha_solicitud) = '$mes' AND YEAR(NOW()) ORDER BY fecha_solicitud DESC, hora_solicitud DESC");
 
 						?>
 						<div class="img-formulario">
@@ -204,9 +200,9 @@ include 'includes/templates/header.php';
 
 								$resultado = $consulta->num_rows;
 								if ($consulta->num_rows > 1 || $consulta->num_rows <= 0) {
-									echo '<h3>' . $resultado . ' resultados del mes de <br> ' . strtolower($meses[$mesSolicitud]) . ' de ' . $solicitudes->num_rows . ' solicitudes en total</h3>';
+									echo '<h3>' . $resultado . ' resultados del mes de <br> ' . strtolower($meses[$mesSolicitud]) . ' de ' . $consulta->num_rows . ' solicitudes en total</h3>';
 								} else {
-									echo '<h3>' . $resultado . ' resultado del mes de <br> ' . strtolower($meses[$mesSolicitud]) . ' de ' . $solicitudes->num_rows . ' solicitudes total/h3>';
+									echo '<h3>' . $resultado . ' resultado del mes de <br> ' . strtolower($meses[$mesSolicitud]) . ' de ' . $consulta->num_rows . ' solicitudes total</h3>';
 								}
 								?>
 							</div>
@@ -215,7 +211,6 @@ include 'includes/templates/header.php';
 							<tr>
 								<th>No.</th>
 								<th>Fecha Solicitud</th>
-								<th>Clase</th>
 								<th>Nombre Completo</th>
 								<th>Gestionar</th>
 							</tr>
@@ -236,14 +231,11 @@ include 'includes/templates/header.php';
 										<p><?php echo $solicitud['hora_solicitud'] . " | " . date("d-m-Y", strtotime($solicitud['fecha_solicitud'])); ?></p>
 									</td>
 									<td>
-										<p><?php echo $solicitud['clase'] ?></p>
-									</td>
-									<td>
-										<p><?php echo $solicitud['nombres'] . " " . $solicitud['apellidos'] ?></p>
+										<p><?php echo $solicitud['nombre_completo'] ?></p>
 									</td>
 									<td>
 										<div class="acciones">
-											<a href="ver-solicitud.php?ID=<?php echo $solicitud['id_temp'] ?>" target="_self"><i class="fas fa-eye"></i></a>
+											<a href="ver-solicitud.php?ID=<?php echo $solicitud['id'] ?>" target="_self"><i class="fas fa-eye"></i></a>
 											<i class="far fa-check-circle <?php echo ($solicitud['estado'] === '1' ? 'completo' : '') ?>"></i>
 											<i class="fas fa-trash"></i>
 										</div>

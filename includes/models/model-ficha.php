@@ -9,12 +9,16 @@ $identidad = $_POST['identidad'];
 $genero = $_POST['genero'];
 $estado_civil = $_POST['estado_civil'];
 $direccion = $_POST['direccion'];
+$ciudad = $_POST['ciudad'];
+$departamento = $_POST['departamento'];
 $email = $_POST['email'];
 $celular = $_POST['celular'];
 $telefono = $_POST['telefono'];
 $dependientes = $_POST['dependientes'];
+
 $profesion = $_POST['profesion'];
 $empresa_labora = $_POST['empresa_labora'];
+$direccion_empleo = $_POST['direccion_empleo'];
 $telefono_empleo = $_POST['telefono_empleo'];
 $cargo = $_POST['cargo'];
 $tiempo_laborando = $_POST['tiempo_laborando'];
@@ -66,8 +70,8 @@ if ($accion === 'solicitud') {
 	//Importar la conexión
 	include '../conexion.php';
 	try {
-		$statement = $conn->prepare("INSERT INTO ficha_directorio (fecha_solicitud, hora_solicitud, nombre_completo, fecha_nacimiento, identidad, genero, estado_civil, direccion, telefono, celular, dependientes, correo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-		$statement->bind_param('ssssssssssss', $fechaSolicitud, $horaSolicitud, $name, $fechanac, $identidad, $genero, $estado_civil, $direccion,  $telefono, $celular, $dependientes, $email);
+		$statement = $conn->prepare("INSERT INTO ficha_directorio (fecha_solicitud, hora_solicitud, nombre_completo, fecha_nacimiento, identidad, genero, estado_civil, direccion, telefono, celular, dependientes, correo, ciudad, departamento, profesion, lugar_empleo, direccion_empleo, cargo, tiempo_laborando, telefono_empleo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+		$statement->bind_param('ssssssssssssssssssss', $fechaSolicitud, $horaSolicitud, $name, $fechanac, $identidad, $genero, $estado_civil, $direccion, $telefono, $celular, $dependientes, $email, $ciudad, $departamento, $profesion, $empresa_labora, $direccion_empleo, $cargo, $tiempo_laborando, $telefono_empleo);
 		$statement->execute();
 		$last_id = mysqli_insert_id($conn);
 

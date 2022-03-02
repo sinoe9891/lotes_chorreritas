@@ -40,7 +40,7 @@ function obtenerSolicitudes() {
 function obtenerNumeroSolicitudes() {
 	include 'conexion.php';
     try {
-		return $conn->query("SELECT id_temp, fecha_solicitud, hora_solicitud, estado, clase, nombres, apellidos FROM temporal_update_210618 WHERE estado = 0 ORDER BY id_temp DESC");
+		return $conn->query("SELECT * FROM ficha_directorio WHERE estado = 0 ORDER BY id DESC");
     } catch(Exception $e) {
 		echo "Error! : " . $e->getMessage();
         return false;
@@ -103,7 +103,7 @@ function obtenerInfoGraduado($id = null) {
 function obtenerInfoSolicitud($id = null) {
     include 'conexion.php';
     try {
-        return $conn->query("SELECT * FROM temporal_update_210618 WHERE id_temp = {$id}");
+        return $conn->query("SELECT * FROM ficha_directorio WHERE id = {$id}");
 
     } catch(Exception $e) {
         echo "Error! : " . $e->getMessage();
@@ -146,7 +146,7 @@ function obtenerInfoGraduandosActual($id = null) {
 function obtenerInfoGraduadoActual($id = null) {
     include 'conexion.php';
     try {
-        return $conn->query("SELECT * FROM graduat3s WHERE ID = {$id}");
+        return $conn->query("SELECT * FROM ficha_directorio WHERE id = {$id}");
 
     } catch(Exception $e) {
         echo "Error! : " . $e->getMessage();

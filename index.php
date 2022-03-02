@@ -16,15 +16,15 @@ include 'includes/templates/header.php';
 			<div class="content-home">
 				<div class="content-home1">
 					<div class="row">
-						<!-- <a href="actualiza-tus-datos.php">
+						<a href="mapa.php?lote=1">
 							<div class="caja-nuevo">
 								<div class="img">
 									<img src="images/icons/buscar.svg" alt="">
-									<h3> Actualizar <br>Egresado</h3>
+									<h3> Mapa <br>Lote</h3>
 								</div>
 							</div>
-						</a> -->
-						<a href="buscar-graduado.php">
+						</a>
+						<!-- <a href="buscar-graduado.php">
 							<div class="caja-buscar">
 								<div class="img">
 									<img src="images/icons/buscar.svg" alt="">
@@ -42,39 +42,23 @@ include 'includes/templates/header.php';
 									<?php
 									$solicitudes = obtenerNumeroSolicitudes('id_temp');
 									if ($solicitudes->num_rows > 0) {
-										echo '<h3><span id="noti-solicitud">' . $solicitudes->num_rows . '</span> Solicitudes de<br>Actualización</h3>';
+										echo '<h3><span id="noti-solicitud">' . $solicitudes->num_rows . '</span> Edición de<br>Usuario</h3>';
 									} else {
 										// no hay tareas
-										echo '<h3>Solicitudes de<br>Actualización</h3>';
+										echo '<h3>Edición de<br> Usuario</h3>';
 									}
 									?>
 								</div>
 							</div>
 						</a>
-						<a href="graduandos-solicitudes.php?mesSolicitud=13">
-							<div class="caja-nuevo">
-								<div class="img">
-									<img src="images/icons/solicitudes.svg" alt="">
-									<?php
-									$solicitudes = obtenerNumeroGraduandos('id_temp');
-									if ($solicitudes->num_rows > 0) {
-										echo '<h3><span id="noti-solicitud">' . $solicitudes->num_rows . '</span> Perfiles de<br>Graduandos</h3>';
-									} else {
-										// no hay tareas
-										echo '<h3>Perfiles de<br>Graduandos</h3>';
-									}
-									?>
-								</div>
-							</div>
-						</a>
-						<a href="editar-perfil.php">
+						<!-- <a href="editar-perfil.php">
 							<div class="caja-editar">
 								<div class="img">
 									<img src="images/icons/editar.svg" alt="">
 									<h3>Editar <br>Perfil de Graduado</h3>
 								</div>
 							</div>
-						</a>
+						</a> -->
 						<a href="ver-fichas.php?mesSolicitud=13">
 							<div class="caja-importar">
 								<div class="img">
@@ -82,16 +66,24 @@ include 'includes/templates/header.php';
 									<?php
 									$solicitudes = obtenerFichas('id');
 									if ($solicitudes->num_rows > 0) {
-										echo '<h3><span id="noti-solicitud">' . $solicitudes->num_rows . '</span> Fichas de<br>Graduados</h3>';
+										echo '<h3><span id="noti-solicitud">' . $solicitudes->num_rows . '</span> Perfiles<br>de Usuario</h3>';
 									} else {
 										// no hay tareas
-										echo '<h3>Fichas de<br>Graduados</h3>';
+										echo '<h3>Perfiles<br>de Usuario</h3>';
 									}
 									?>
 								</div>
 							</div>
 						</a>
-						<a href="exportar.php">
+						<a href="contrato.php">
+							<div class="caja-solicitudes"">
+								<div class="img">
+									<img src="images/icons/buscar.svg" alt="">
+									<h3>Generar <br>Contrato</h3>
+								</div>
+							</div>
+						</a>
+						<!-- <a href="exportar.php">
 							<div class="caja-usuario">
 								<div class="img">
 									<img src="images/icons/exportar.svg" alt="">
@@ -114,16 +106,16 @@ include 'includes/templates/header.php';
 									<h3>Crear<br>Registro</h3>
 								</div>
 							</div>
-						</a>
+						</a> -->
 						<a href="register.php">
-							<div class="caja-nuevo">
+							<div class="caja-editar">
 								<div class="img">
 									<img src="images/icons/new-user.svg" alt="">
 									<h3>Crear <br>Usuario</h3>
 								</div>
 							</div>
 						</a>
-						<a href="metricas.php">
+						<!-- <a href="metricas.php">
 							<div class="caja-editar">
 								<div class="img">
 									<img src="images/icons/metricas.svg" alt="">
@@ -131,22 +123,14 @@ include 'includes/templates/header.php';
 								</div>
 							</div>
 						</a>
-						<a href="notas-de-duelo.php">
-							<div class="caja-importar">
-								<div class="img">
-									<img src="images/icons/buscar.svg" alt="">
-									<h3>Notas de <br>Duelo</h3>
-								</div>
-							</div>
-						</a>
 						<a href="ver-notas-duelo.php?anoFallecido=<?php echo date('Y'); ?>">
-							<div class="caja-usuario">
+							<div class="caja-importar">
 								<div class="img">
 									<img src="images/icons/buscar.svg" alt="">
 									<h3>Ver <br>Notas de Duelo</h3>
 								</div>
 							</div>
-						</a>
+						</a> -->
 					</div>
 					<div class="row">
 					</div>

@@ -102,7 +102,9 @@ date_default_timezone_set('America/Tegucigalpa');
 								<select name="estado_civil" id="estado_civil">
 									<option value="1">Solter(a)</option>
 									<option value="2">Casad(a)</option>
-									<option value="3">Unión Libre</option>
+									<option value="3">Divorciado</option>
+									<option value="4">Viudo</option>
+									<option value="5">Unión Libre</option>
 								</select>
 							</div>
 						</div>
@@ -113,6 +115,24 @@ date_default_timezone_set('America/Tegucigalpa');
 									<i class="fas fa-city"></i>
 								</div>
 								<input type="text" name="direccion" id="direccion" value="" placeholder="Ej. Los Robles, Tegucigalpa, Honduras, …">
+							</div>
+						</div>
+						<div class="full-width input">
+							<p>Ciudad</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<i class="fas fa-city"></i>
+								</div>
+								<input type="text" name="ciudad" id="ciudad" value="" placeholder="Ej. Los Robles, Tegucigalpa …">
+							</div>
+						</div>
+						<div class="full-width input">
+							<p>Departamento / Estado</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<i class="fas fa-city"></i>
+								</div>
+								<input type="text" name="departamento" id="departamento" value="" placeholder="Ej. Francisco Morazán …">
 							</div>
 						</div>
 						<div class="full-width input">
@@ -169,7 +189,16 @@ date_default_timezone_set('America/Tegucigalpa');
 								<div class="icon">
 									<i class="fas fa-building"></i>
 								</div>
-								<input type="text" name="empresa_labora" id="empresa_labora" value="" placeholder="Ej. Col. Ruben Darío, Tegucigalpa, …">
+								<input type="text" name="empresa_labora" id="empresa_labora" value="" placeholder="Nombre Empresa, …">
+							</div>
+						</div>
+						<div class="full-width input">
+							<p>Dirección de Empleo</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<i class="fas fa-building"></i>
+								</div>
+								<input type="text" name="direccion_empleo" id="direccion_empleo" value="" placeholder="Ej. Col. Ruben Darío, Tegucigalpa, …">
 							</div>
 						</div>
 						<div class="full-width input">

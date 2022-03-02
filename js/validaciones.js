@@ -110,16 +110,10 @@ function validarBuscar(e) {
 	e.preventDefault();
 
 	var nombres = document.getElementById('nombres').value;
-	var apellidos = document.getElementById('apellidos').value;
-	var clase = document.getElementById('clase').value;
-	var codigo = document.getElementById('codigo').value;
-	var nacionalidad = document.getElementById('nacionalidad').value;
-	var genero = document.getElementById('genero').value;
 	var i = 0;
 	var contador = 0;
-	for (i; i <= 5; i++) {
+	for (i; i < 1; i++) {
 		var hola = document.forms["buscador"][i].value;
-		var hola1 = document.forms["buscador"][i];
 		// console.log(hola1)
 		contador += hola.length;
 	}
@@ -135,7 +129,7 @@ function validarBuscar(e) {
 		})
 		// console.log(false);
 		return false; // keep form from submitting
-	} else if (document.forms["buscador"][5].value.length == 1 && contador == 1) {
+	} else if (document.forms["buscador"][1].value.length == 1 && contador == 1) {
 		e.preventDefault();
 		Swal.fire({
 			icon: 'error',
@@ -146,7 +140,7 @@ function validarBuscar(e) {
 	} else if (contador > 0) {
 
 		// console.log(document.getElementById('cajaresultado').innerHTML = '<?php echo realizarBusqueda(); ?>');
-		url = '?nombres=' + nombres + '&apellidos=' + apellidos + '&clase=' + clase + '&codigo=' + codigo + '&nacionalidad=' + nacionalidad + '&genero=' + genero;
+		url = '?nombres=' + nombres;
 		location.href = url;
 		// console.log(url);
 	}

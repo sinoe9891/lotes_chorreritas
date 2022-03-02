@@ -593,12 +593,15 @@ function validarFicha(e) {
 		genero = document.querySelector('#genero').value,
 		estado_civil = document.querySelector('#estado_civil').value,
 		direccion = document.querySelector('#direccion').value,
+		ciudad = document.querySelector('#ciudad').value,
+		departamento = document.querySelector('#departamento').value,
 		email = document.querySelector('#correo').value,
 		celular = document.querySelector('#celular').value,
 		telefono = document.querySelector('#telefono').value,
 		dependientes = document.querySelector('#dependientes').value,
 		profesion = document.querySelector('#profesion').value,
 		empresa_labora = document.querySelector('#empresa_labora').value,
+		direccion_empleo = document.querySelector('#direccion_empleo').value,
 		telefono_empleo = document.querySelector('#telefono_empleo').value,
 		cargo = document.querySelector('#cargo').value,
 		tiempo_laborando = document.querySelector('#tiempo_laborando').value,
@@ -684,12 +687,15 @@ function validarFicha(e) {
 		datos.append('genero', genero);
 		datos.append('estado_civil', estado_civil);
 		datos.append('direccion', direccion);
+		datos.append('ciudad', ciudad);
+		datos.append('departamento', departamento);
 		datos.append('email', email);
 		datos.append('celular', celular);
 		datos.append('telefono', telefono);
 		datos.append('dependientes', dependientes);
 		datos.append('profesion', profesion);
 		datos.append('empresa_labora', empresa_labora);
+		datos.append('direccion_empleo', direccion_empleo);
 		datos.append('telefono_empleo', telefono_empleo);
 		datos.append('cargo', cargo);
 		datos.append('tiempo_laborando', tiempo_laborando);
