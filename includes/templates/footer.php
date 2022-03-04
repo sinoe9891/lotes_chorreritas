@@ -10,7 +10,7 @@
     $actual = obtenerPaginaActual();
     if ($actual === 'register' || $actual === 'login') {
         echo '<script src="js/formulario.js"></script>';
-    }elseif ($actual === 'index' || $actual === 'solicitudes' || $actual === 'graduates-list' || $actual === 'actualiza-tus-datos' || $actual === 'actualizar-graduado' || $actual === 'editar-perfil' || $actual === 'contrato' || $actual === 'birthday' || $actual === 'ver-notas-de-duelo' || $actual === 'exportar' || $actual === 'buscar-graduado' || $actual === 'graduandos' || $actual === 'graduandos-solicitudes' || $actual === 'ver-fichas') {
+    }elseif ($actual === 'index' || $actual === 'solicitudes' || $actual === 'graduates-list' || $actual === 'actualiza-tus-datos' || $actual === 'actualizar-graduado' || $actual === 'editar-bloque' || $actual === 'contrato' || $actual === 'birthday' || $actual === 'ver-notas-de-duelo' || $actual === 'exportar' || $actual === 'buscar-graduado' || $actual === 'graduandos' || $actual === 'graduandos-solicitudes' || $actual === 'ver-fichas') {
         echo '<script> console.log("No accede porque la ruta actual no corresponde");</script>';
         echo '<script src="js/validaciones.js"></script>';
     }else{

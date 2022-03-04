@@ -1,7 +1,7 @@
 <div class="nav-logo">
 	<div class="logo">
 		<!-- <a href="index.php"> <img src="images/logo-direccion-02.png" alt=""></a> -->
-		<h2>Control de Egresados</h2>
+		<h2>Control de Lotes</h2>
 		<div class="caja">
 			<!-- <a href="buscar-graduado.php">
 				<div class="back">

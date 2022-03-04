@@ -107,12 +107,8 @@ include 'includes/templates/header.php';
 						}
 					}
 		?>
-
-
-
 			</div>
 			<div class="container">
-
 				<?php
 				include 'lotes/chorreritas.php';
 				$consulta = $conn->query("SELECT * FROM lotes");
@@ -122,12 +118,13 @@ include 'includes/templates/header.php';
 					$contador++;
 					$id = $row['id_lote'];
 					$nombres = $row['bloque'];
-					$path = $row['path'];
+					$path = $row['path_lote'];
 					$bloqueN = $row['bloque'];
 					$estado = $row['estado'];
 				?>
 
-					<a href="mapa.php?lote=<?php echo $id . '&bloque=' . $bloqueN ?>">
+					
+					<a href="mapa.php?lote=<?php echo $id ?>">
 						<path id="<?php echo $bloque . $id ?>" class="cls-1 
 					<?php
 					if ($estado == 'v') {
@@ -141,11 +138,18 @@ include 'includes/templates/header.php';
 
 						</path>
 					</a>
-
+					<text  dy="17" x="3" y="20" font-family="Verdana" font-size="5" style="fill:#425b8e;">
+						<textPath xlink:href="#<?php echo $bloque . $id ?>"><?php echo  $bloque . $id ?></textPath>
+					</text>
 				<?php
+				echo $bloqueN . $id;
 				}
 				?>
 				</svg>
+				<?php
+				echo $bloqueN . $id;
+				
+				?>
 			</div>
 		</div>
 	</div>

@@ -58,7 +58,7 @@ function validarRegistro(e) {
 								position: 'center',
   
                             });
-                        } else if (respuesta.tipo === 'login') {
+                        } else if (respuesta.tipo === 'crear') {
                             window.location.href = 'index.php';
                             // Swal.fire({
                             //         type: 'success',

@@ -635,8 +635,8 @@ function validarFicha(e) {
 		fecha_cuota = document.querySelector('#fecha_cuota').value,
 		plazo_pago = document.querySelector('#plazo_pago').value,
 		plazo_meses = document.querySelector('#plazo_meses').value;
-		// curriculum = document.querySelector('#curriculum').files[0],
-		// fotos = document.querySelector('#fotos').files;
+	// curriculum = document.querySelector('#curriculum').files[0],
+	// fotos = document.querySelector('#fotos').files;
 	// if (curriculum == '' && fotos == '') {
 	// 	curriculum = '';
 	// 	fotos = '';
@@ -667,7 +667,7 @@ function validarFicha(e) {
 	// }
 	//Validar que el campo tenga algo escrito
 	// if (nombres === '' || clase === '' || empresaLabora === '' || rubroEmpresaLabora === '' || correo === '' || address === '' || biografia === '') {
-	if (nombres === '' ) {
+	if (nombres === '') {
 		//validación Falló
 		Swal.fire({
 			icon: 'error',
@@ -1487,95 +1487,17 @@ function aprobarSolicitudGraduando(e) {
 //-------------------Editar Graduado-------------------
 function editarGraduado(e) {
 	e.preventDefault();
-
+	
 	let user_id = document.querySelector('#user_id').value,
-		horaSolicitud = document.querySelector('#horaSolicitud').value,
-		fechaSolicitud = document.querySelector('#fechaSolicitud').value,
-		nombres = document.querySelector('#nombre').value,
-		firstname = document.querySelector('#firstname').value,
-		secondname = document.querySelector('#secondname').value,
-		apellidos = document.querySelector('#apellidos').value,
-		primerapellido = document.querySelector('#primerapellido').value,
-		segundoapellido = document.querySelector('#segundoapellido').value,
-		clase = document.querySelector('#clase').value,
-		codigo = document.querySelector('#codigo').value,
-		nickname = document.querySelector('#apodo').value,
-		nationality = document.querySelector('#nacionalidad').value,
-		sex = document.querySelector('#genero').value,
-		//Información Personal
-		dateHB = document.querySelector('#fecha_nacimiento').value,
-		country = document.querySelector('#pais').value,
-		city = document.querySelector('#ciudad').value,
-		address = document.querySelector('#direccion').value,
-		correo = document.querySelector('#correo').value,
-		correo1 = document.querySelector('#correo1').value,
-		correo2 = document.querySelector('#correo2').value,
-		mobile = document.querySelector('#celular').value,
-		phone = document.querySelector('#telefono').value,
-		empresaLabora = document.querySelector('#empresaLabora').value,
-		rubroEmpresaLabora = document.querySelector('#rubroEmpresaLabora').value,
-		areasInteres = document.getElementById('areasInteres').value,
-		url_linkedin = document.querySelector('#url_linkedin').value,
-		orientacion = document.querySelector('#orientacion').value,
-		programa = document.querySelector('#programa').value,
-		//Información Académica
-		empresaPasantia = document.querySelector('#empresaPasantia').value,
-		direccionEmpresaPasantia = document.querySelector('#direccionEmpresaPasantia').value,
-		rubroEmpresaPasantia = document.querySelector('#rubroEmpresaPasantia').value,
-		experienciaPasantia = document.querySelector('#experienciaPasantia').value,
-		areaInvestigacionPasantia = document.querySelector('#areaInvestigacionPasantia').value,
-		asesorTesis = document.querySelector('#asesorTesis').value,
-		tituloTesis = document.querySelector('#tituloTesis').value,
-		urlTesis = document.querySelector('#urlTesis').value,
-		financiado = document.querySelector('#financiado').value,
-		fondos_zamorano = document.querySelector('#fondos_zamorano').value,
-		fondos_propios = document.querySelector('#fondos_propios').value,
-		fondos_entidades = document.querySelector('#fondos_entidades').value,
-		otras_entidades = document.querySelector('#otras_entidades').value,
-
-		linkedin = document.querySelector('#linkedin').value,
-		fallecido = document.querySelector('#fallecido').value,
-		fechaFallecido = document.querySelector('#fechaFallecido').value,
-		fechaNotaDuelo = document.querySelector('#fechaNotaDuelo').value,
-		estatus = document.querySelector('#estatus').value,
-		pa = document.querySelector('#pa').value,
-		anioIA = document.querySelector('#anioIA').value,
-		dia_graduacion = document.querySelector('#dia_graduacion').value,
-		mes_graduacion = document.querySelector('#mes_graduacion').value,
-		codigoIA = document.querySelector('#codigoIA').value,
+		bloque = document.querySelector('#bloque').value,
+		areav2 = document.querySelector('#areav2').value,
+		estado = document.querySelector('#estado').value,
+		path = document.querySelector('#path').value,
 
 		// password = document.querySelector('#password').value,
 		tipo = document.querySelector('#tipo').value;
-	// console.log(fallecido);
-	// console.log(Date.parse(fechaFallecido));
-	if (url_linkedin == '') {
-		linkedin = 0;
-	} else {
-		linkedin = 1;
-	}
-	let otrasEnti, fondosz, fondosp;
-	if (fondos_entidades === '') {
-		otrasEnti = 0;
-		// document.getElementById('otras_entidades').required = false;
-	} else {
-		otrasEnti = 1;
-		// document.getElementById('otras_entidades').required = true;
-	}
-
-	if (fondos_zamorano === '0') {
-		fondos_zamorano = '0';
-	} else {
-		fondos_zamorano = '1';
-	}
-
-	if (fondos_propios === '0') {
-		fondos_propios = '0';
-	} else {
-		fondos_propios = '1';
-	}
-
 	//Validar que el campo tenga algo escrito
-	if (nombres === '' || apellidos === '' || clase === '' || nationality === '') {
+	if (areav2 === '' || bloque === '' || estado === '' || path === '') {
 		//validación Falló
 		Swal.fire({
 			icon: 'error',
@@ -1588,63 +1510,12 @@ function editarGraduado(e) {
 		//Crear  FormData - Datos que se envían al servidor
 		let datos = new FormData();
 		datos.append('user_id', user_id);
-		datos.append('fechaSolicitud', fechaSolicitud);
-		datos.append('horaSolicitud', horaSolicitud);
-		datos.append('nombres', nombres);
-		datos.append('firstname', firstname);
-		datos.append('secondname', secondname);
-		datos.append('apellidos', apellidos);
-		datos.append('primerapellido', primerapellido);
-		datos.append('segundoapellido', segundoapellido);
-		datos.append('clase', clase);
-		datos.append('codigo', codigo);
-		datos.append('nickname', nickname);
-		datos.append('nationality', nationality);
-		datos.append('sex', sex);
-		//Información Personal
-		datos.append('dateHB', dateHB);
-		datos.append('country', country);
-		datos.append('city', city);
-		datos.append('address', address);
-		datos.append('correo', correo);
-		datos.append('correo1', correo1);
-		datos.append('correo2', correo2);
-		datos.append('mobile', mobile);
-		datos.append('phone', phone);
-		datos.append('empresaLabora', empresaLabora);
-		datos.append('rubroEmpresaLabora', rubroEmpresaLabora);
-		datos.append('areasInteres', areasInteres);
-		datos.append('url_linkedin', url_linkedin);
-		//Información Académica
-		datos.append('programa', programa);
-		datos.append('orientation', orientacion);
-		datos.append('empresaPasantia', empresaPasantia);
-		datos.append('direccionEmpresaPasantia', direccionEmpresaPasantia);
-		datos.append('rubroEmpresaPasantia', rubroEmpresaPasantia);
-		datos.append('experienciaPasantia', experienciaPasantia);
-		datos.append('areaInvestigacionPasantia', areaInvestigacionPasantia);
-		datos.append('asesorTesis', asesorTesis);
-		datos.append('tituloTesis', tituloTesis);
-		datos.append('urlTesis', urlTesis);
-		datos.append('financiado', financiado);
-		datos.append('fondos_zamorano', fondos_zamorano);
-		datos.append('fondos_propios', fondos_propios);
-		datos.append('fondos_entidades', fondos_entidades);
-		datos.append('otras_entidades', otras_entidades);
-
-		datos.append('linkedin', linkedin);
-		datos.append('fallecido', fallecido);
-		datos.append('fechaFallecido', fechaFallecido);
-		datos.append('fechaNotaDuelo', fechaNotaDuelo);
-		datos.append('estatus', estatus);
-		datos.append('pa', pa);
-		datos.append('anioIA', anioIA);
-		datos.append('dia_graduacion', dia_graduacion);
-		datos.append('mes_graduacion', mes_graduacion);
-		datos.append('codigoIA', codigoIA);
-
+		datos.append('bloque', bloque);
+		datos.append('areav2', areav2);
+		datos.append('estado', estado);
+		datos.append('path', path);
 		datos.append('accion', tipo);
-
+		
 		//Crear  el llamado a Ajax
 		let xhr = new XMLHttpRequest();
 		//Abrir la Conexión
@@ -1653,22 +1524,23 @@ function editarGraduado(e) {
 		//Retorno de Datos
 		xhr.onload = function () {
 			if (this.status === 200) {
+				
 				//esta es la respuesta la que tenemos en el model
 				// let respuesta = xhr.responseText;
 				let respuesta = JSON.parse(xhr.responseText);
-				// console.log(respuesta);
+				console.log(respuesta);
 				if (respuesta.respuesta === 'correcto') {
 					//si es un nuevo usuario 
 					if (respuesta.tipo == 'solicitud') {
 						Swal.fire({
 							icon: 'success',
-							title: '¡Solicitud realizada!',
+							title: '¡Lote Actualizado!',
 							text: 'Esta solicitud se ha realizado con éxito',
 							position: 'center',
 							showConfirmButton: true
 						}).then(function () {
-							url = '?nombres=' + nombres + '&apellidos=' + apellidos + '&clase=' + clase + '&codigo=' + codigo + '&nacionalidad=' + nationality + '&genero=' + sex;
-							window.location = "editar-perfil.php" + url;
+							url = '?ID=' + user_id + '&bloque=' + bloque;
+							window.location = "editar-lote.php" + url;
 						});
 					}
 				} else {
@@ -1684,90 +1556,6 @@ function editarGraduado(e) {
 		xhr.send(datos);
 	}
 
-}
-
-//-----------------Validar Buscar-----------------
-
-function validarBuscar(e) {
-	e.preventDefault();
-
-	let nombres = document.querySelector('#nombre').value,
-		apellidos = document.querySelector('#apellidos').value,
-		clase = document.querySelector('#clase').value,
-		codigo = document.querySelector('#codigo').value,
-		nationality = document.querySelector('#nacionalidad').value,
-		sex = document.querySelector('#genero').value,
-		tipo = document.querySelector('#tipo').value;
-
-	var value = document.getElementById('nombres').value;
-	if (value.length <= 0) {
-		// evento.preventDefault();
-		Swal.fire({
-			icon: 'error',
-			title: 'Oops...',
-			text: 'Debe de haber más de un campo lleno'
-		})
-		console.log(false);
-		return false; // keep form from submitting
-	} else {
-		console.log(true);
-	}
-
-	//Validar que el campo tenga algo escrito
-	if (nombres === '' || apellidos === '' || clase === '') {
-		//validación Falló
-		// Swal.fire({
-		//     icon: 'error',
-		//     title: 'Oops...',
-		//     text: 'Ambos campos son obligatorios!'
-		// });
-	} else {
-		//Campos son correctos - Ejecutamos AJAX
-
-		//Crear  FormData - Datos que se envían al servidor
-		let datos = new FormData();
-		datos.append('nombres', nombres);
-		datos.append('apellidos', apellidos);
-		datos.append('clase', clase);
-		datos.append('codigo', codigo);
-		datos.append('nationality', nationality);
-		datos.append('sex', sex);
-
-		//Crear  el llamado a Ajax
-		let xhr = new XMLHttpRequest();
-		//Abrir la Conexión
-		xhr.open('POST', 'includes/models/model-buscar.php', true);
-
-		//Retorno de Datos
-		xhr.onload = function () {
-			if (this.status === 200) {
-				//esta es la respuesta la que tenemos en el model
-				// let respuesta = xhr.responseText;
-				let respuesta = JSON.parse(xhr.responseText);
-				// console.log(respuesta);
-				if (respuesta.respuesta === 'correcto') {
-					//si es un nuevo usuario 
-					if (respuesta.tipo == 'crear') {
-						Swal.fire({
-							icon: 'success',
-							title: 'Usuario Creado',
-							text: 'El usuario se creó correctamente',
-							position: 'center',
-							showConfirmButton: true
-						});
-					}
-				} else {
-					Swal.fire({
-						icon: 'error',
-						title: 'Oops...',
-						text: 'Usuario o contraseña incorrecta'
-					})
-				}
-			}
-		}
-		// Enviar la petición
-		xhr.send(datos);
-	}
 }
 
 // Mantiene abierto el input entidades

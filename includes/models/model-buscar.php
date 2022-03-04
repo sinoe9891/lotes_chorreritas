@@ -1,13 +1,9 @@
 <?php  
-    //die(json_encode($_POST));
+    die(json_encode($_POST));
 
     $accion = $_POST['tipo'];
-    $nombres = $_POST['nombres'];
-    $apellidos = $_POST['apellidos'];
-    $genero = $_POST['sex'];
-    $codigo = $_POST['codigo'];
-    $clase = $_POST['clase'];
-    $nacionality = $_POST['nationality'];
+    $bloque = $_POST['bloque'];
+    $numero = $_POST['numero'];
 
     //Código hacer la búsqueda
     if ($accion === 'buscar') {
@@ -17,18 +13,17 @@
         // 'respuesta' => 'correcto',
         try {
             //Seleccionaremos al administrador de la base de datos
-            $stmt = $conn->prepare('SELECT * FROM graduat3s WHERE nombres like ?  AND apellidos like ? AND genero like ?');
-            $stmt->bind_param('sss', $nombres, $apellidos, $genero);
+            $stmt = $conn->prepare('SELECT * FROM lotes WHERE bloque like ?  AND id_lote like ?');
+            $stmt->bind_param('ss', $bloque, $numero);
             $stmt->execute();
             $result = $stmt->get_result();
             //Loguear el usuario
             if($result->num_rows > 0) {
                 while($row = $result->fetch_array()) {
                   $respuesta = array(
-                    'nombre' => $row[$nombres],
-                    'apellidos' => $row[$apellidos],
-                    'genero' => $row[$genero],
-                    'tipo' => $row[$accion],
+                    'nombre' => $row['id_lote'],
+                    'apellidos' => $row['bloque'],
+                    // 'tipo' => $accion,
                 );
               
                 }

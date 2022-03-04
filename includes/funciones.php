@@ -88,10 +88,10 @@ function obtenerGraduandosFaltantes() {
 }
 
 /* Obtener todos las solicitudes de actualización */
-function obtenerInfoGraduado($id = null) {
+function obtenerInfoLote($id = null) {
     include 'conexion.php';
     try {
-        return $conn->query("SELECT * FROM graduat3s WHERE ID = {$id}");
+        return $conn->query("SELECT * FROM lotes WHERE id_lote = {$id}");
 
     } catch(Exception $e) {
         echo "Error! : " . $e->getMessage();

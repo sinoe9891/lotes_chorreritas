@@ -24,15 +24,15 @@ include 'includes/templates/header.php';
 								</div>
 							</div>
 						</a>
-						<!-- <a href="buscar-graduado.php">
+						<a href="precontrato.php">
 							<div class="caja-buscar">
 								<div class="img">
 									<img src="images/icons/buscar.svg" alt="">
-									<h3>Buscar <br>Egresado</h3>
+									<h3>Ficha<br>Precontrato</h3>
 								</div>
 							</div>
 						</a>
-						<?php
+						<!-- <?php
 							$mes = date("m");
 							echo '<a href="solicitudes.php?mesSolicitud=13">';
 						?>
@@ -50,15 +50,15 @@ include 'includes/templates/header.php';
 									?>
 								</div>
 							</div>
-						</a>
-						<!-- <a href="editar-perfil.php">
+						</a> -->
+						 <a href="editar-lote.php">
 							<div class="caja-editar">
 								<div class="img">
 									<img src="images/icons/editar.svg" alt="">
-									<h3>Editar <br>Perfil de Graduado</h3>
+									<h3>Editar <br>Estado de Lote</h3>
 								</div>
 							</div>
-						</a> -->
+						</a> 
 						<a href="ver-fichas.php?mesSolicitud=13">
 							<div class="caja-importar">
 								<div class="img">
