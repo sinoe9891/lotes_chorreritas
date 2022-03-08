@@ -637,6 +637,7 @@ function validarFicha(e) {
 		plazo_meses = document.querySelector('#plazo_meses').value,
 
 		nombre_beneficiario = document.querySelector('#nombre_beneficiario').value,
+		genero_beneficiario = document.querySelector('#genero_beneficiario').value,
 		identidad_beneficiario = document.querySelector('#identidad_beneficiario').value,
 		direccion_beneficiario = document.querySelector('#direccion_beneficiario').value,
 		ciudad_beneficiario = document.querySelector('#ciudad_beneficiario').value,
@@ -706,6 +707,7 @@ function validarFicha(e) {
 		datos.append('plazo_pago', plazo_pago);
 		datos.append('plazo_meses', plazo_meses);
 		datos.append('nombre_beneficiario', nombre_beneficiario);
+		datos.append('genero_beneficiario', genero_beneficiario);
 		datos.append('identidad_beneficiario', identidad_beneficiario);
 		datos.append('direccion_beneficiario', direccion_beneficiario);
 		datos.append('ciudad_beneficiario', ciudad_beneficiario);

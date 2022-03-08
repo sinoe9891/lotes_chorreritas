@@ -76,7 +76,7 @@ date_default_timezone_set('America/Tegucigalpa');
 								<div class="icon">
 									<img src="images/icons/profile.svg" alt="">
 								</div>
-								<input type="text" name="identidad" id="identidad" value="" placeholder="0801-1989-07380">
+								<input type="text" name="identidad" max="15" id="identidad" value="" placeholder="0801-1989-07380">
 							</div>
 						</div>
 						<div class="full-width input">
@@ -114,7 +114,7 @@ date_default_timezone_set('America/Tegucigalpa');
 								<div class="icon">
 									<i class="fas fa-city"></i>
 								</div>
-								<input type="text" name="direccion" id="direccion" value="" placeholder="Ej. Los Robles, Tegucigalpa, Honduras, …">
+								<input type="text" name="direccion" id="direccion" value="" placeholder="Ej. Col. Los Robles, Bloque #, Casa #, …">
 							</div>
 						</div>
 						<div class="full-width input">
@@ -123,7 +123,7 @@ date_default_timezone_set('America/Tegucigalpa');
 								<div class="icon">
 									<i class="fas fa-city"></i>
 								</div>
-								<input type="text" name="ciudad" id="ciudad" value="" placeholder="Ej. Los Robles, Tegucigalpa …">
+								<input type="text" name="ciudad" id="ciudad" value="" placeholder="Ej. Tegucigalpa …">
 							</div>
 						</div>
 						<div class="full-width input">
@@ -314,7 +314,7 @@ date_default_timezone_set('America/Tegucigalpa');
 								<div class="icon">
 									<img src="images/icons/profile.svg" alt="">
 								</div>
-								<input type="text" name="identidad_conyugue" id="identidad_conyugue" value="" placeholder="0801-1989-07380">
+								<input type="text" name="identidad_conyugue" max="15" id="identidad_conyugue" value="" placeholder="0801-1989-07380">
 							</div>
 						</div>
 						<div class="full-width input">
@@ -376,12 +376,24 @@ date_default_timezone_set('America/Tegucigalpa');
 							</div>
 						</div>
 						<div class="full-width input">
+							<p>Género</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<img src="images/icons/profile.svg" alt="">
+								</div>
+								<select name="genero_beneficiario" id="genero_beneficiario">
+									<option value="F">Femenino</option>
+									<option value="M">Masculino</option>
+								</select>
+							</div>
+						</div>
+						<div class="full-width input">
 							<p>Identidad</p>
 							<div class="full-width-field campo-ficha">
 								<div class="icon">
 									<img src="images/icons/profile.svg" alt="">
 								</div>
-								<input type="text" name="identidad_beneficiario" id="identidad_beneficiario" value="" placeholder="0801-1989-07380">
+								<input type="text" name="identidad_beneficiario" max="15" id="identidad_beneficiario" value="" placeholder="0801-1989-07380">
 							</div>
 						</div>
 						<div class="full-width input">

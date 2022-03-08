@@ -53,6 +53,7 @@ $empresa_labora_referencia_2 = $_POST['empresa_labora_referencia_2'];
 $telefono_empleo_referencia_2 = $_POST['telefono_empleo_referencia_2'];
 
 $nombre_beneficiario = $_POST['nombre_beneficiario'];
+$genero_beneficiario = $_POST['genero_beneficiario'];
 $identidad_beneficiario = $_POST['identidad_beneficiario'];
 $direccion_beneficiario = $_POST['direccion_beneficiario'];
 $ciudad_beneficiario = $_POST['ciudad_beneficiario'];
@@ -109,8 +110,8 @@ if ($accion === 'solicitud') {
 		$statement->bind_param('sssssss', $last_id, $nombre_referencia_2, $direccion_referencia_2, $celular_referencia_2, $telefono_referencia_2, $empresa_labora_referencia_2, $telefono_empleo_referencia_2);
 		$statement->execute();
 		
-		$statement = $conn->prepare("INSERT INTO beneficiario (id_registro, nombre_beneficiario, identidad_beneficiario, direccion_beneficiario, ciudad_beneficiario, departamento_beneficiario, celular_beneficiario) VALUES (?,?,?,?,?,?,?)");
-		$statement->bind_param('sssssss', $last_id, $nombre_beneficiario, $identidad_beneficiario, $direccion_beneficiario, $ciudad_beneficiario, $departamento_beneficiario, $celular_beneficiario);
+		$statement = $conn->prepare("INSERT INTO beneficiario (id_registro, nombre_beneficiario, identidad_beneficiario, genero_beneficiario, direccion_beneficiario, ciudad_beneficiario, departamento_beneficiario, celular_beneficiario) VALUES (?,?,?,?,?,?,?,?)");
+		$statement->bind_param('ssssssss', $last_id, $nombre_beneficiario, $identidad_beneficiario, $genero_beneficiario, $direccion_beneficiario, $ciudad_beneficiario, $departamento_beneficiario, $celular_beneficiario);
 		$statement->execute();
 
 		if ($statement->affected_rows > 0) {
