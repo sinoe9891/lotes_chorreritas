@@ -100,10 +100,10 @@ date_default_timezone_set('America/Tegucigalpa');
 									<img src="images/icons/profile.svg" alt="">
 								</div>
 								<select name="estado_civil" id="estado_civil">
-									<option value="1">Solter(a)</option>
-									<option value="2">Casad(a)</option>
-									<option value="3">Divorciado</option>
-									<option value="4">Viudo</option>
+									<option value="1">Soltero(a)</option>
+									<option value="2">Casado(a)</option>
+									<option value="3">Divorciado(a)</option>
+									<option value="4">Viudo(a)</option>
 									<option value="5">Unión Libre</option>
 								</select>
 							</div>
@@ -360,6 +360,64 @@ date_default_timezone_set('America/Tegucigalpa');
 									<i class="fas fa-briefcase"></i>
 								</div>
 								<input type="text" name="tiempo_laborando_conyugue" value="" id="tiempo_laborando_conyugue" placeholder="Ej. 3 Años, 2 meses">
+							</div>
+						</div>
+
+						<div class="titulo-form">
+							<h3>Beneficiario</h3>
+						</div>
+						<div class="full-width input">
+							<p>Nombre Completo</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<img src="images/icons/profile.svg" alt="">
+								</div>
+								<input type="text" id="nombre_beneficiario" name="nombre_beneficiario" placeholder="Nombre completo">
+							</div>
+						</div>
+						<div class="full-width input">
+							<p>Identidad</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<img src="images/icons/profile.svg" alt="">
+								</div>
+								<input type="text" name="identidad_beneficiario" id="identidad_beneficiario" value="" placeholder="0801-1989-07380">
+							</div>
+						</div>
+						<div class="full-width input">
+							<p>Lugar de residencia actual</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<i class="fas fa-city"></i>
+								</div>
+								<input type="text" name="direccion_beneficiario" id="direccion_beneficiario" value="" placeholder="Ej. Los Robles, Tegucigalpa, Honduras, …">
+							</div>
+						</div>
+						<div class="full-width input">
+							<p>Ciudad</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<i class="fas fa-city"></i>
+								</div>
+								<input type="text" name="ciudad_beneficiario" id="ciudad_beneficiario" value="" placeholder="Ej. Los Robles, Tegucigalpa …">
+							</div>
+						</div>
+						<div class="full-width input">
+							<p>Departamento / Estado</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<i class="fas fa-city"></i>
+								</div>
+								<input type="text" name="departamento_beneficiario" id="departamento_beneficiario" value="" placeholder="Ej. Francisco Morazán …">
+							</div>
+						</div>
+						<div class="full-width input">
+							<p>Celular</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<i class="fas fa-phone"></i>
+								</div>
+								<input type="tel" name="celular_beneficiario" id="celular_beneficiario" value="" placeholder="94500123">
 							</div>
 						</div>
 						<div class="titulo-form">

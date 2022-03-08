@@ -27,14 +27,9 @@ function addEventListener() {
 		aprobacion.addEventListener('submit', aprobarSolicitud);
 	}
 	// Actualizar de Graduado
-	let editarGraduate = document.querySelector('#editarGraduado');
+	let editarGraduate = document.querySelector('#editarLote');
 	if (editarGraduate) {
-		editarGraduate.addEventListener('submit', editarGraduado);
-	}
-	//Buscador de Graduados
-	let buscador = document.querySelector('#buscador');
-	if (buscador) {
-		buscador.addEventListener('submit', validarBuscar);
+		editarGraduate.addEventListener('submit', editarLote);
 	}
 	//Detectar Click de eliminar
 	let eliminarImg = document.querySelector('.img-formulario');
@@ -45,6 +40,11 @@ function addEventListener() {
 	let fichaSolicitud = document.querySelector('#formulario-ficha');
 	if (fichaSolicitud) {
 		fichaSolicitud.addEventListener('submit', validarFicha);
+	}
+	//Asignar Lote
+	let asignar = document.querySelector('#asignar_lote');
+	if (asignar) {
+		asignar.addEventListener('submit', asignarLote);
 	}
 }
 
@@ -634,39 +634,15 @@ function validarFicha(e) {
 		fecha_pago = document.querySelector('#fecha_pago').value,
 		fecha_cuota = document.querySelector('#fecha_cuota').value,
 		plazo_pago = document.querySelector('#plazo_pago').value,
-		plazo_meses = document.querySelector('#plazo_meses').value;
-	// curriculum = document.querySelector('#curriculum').files[0],
-	// fotos = document.querySelector('#fotos').files;
-	// if (curriculum == '' && fotos == '') {
-	// 	curriculum = '';
-	// 	fotos = '';
-	// }
-	// let barraestado = document.formficha.children[1].children[0],
-	// 	span = barraestado.children[0], tamano = 0;
-	// barraestado.classList.remove('barra_verde', 'barra_roja');
-	let enviar = false;
+		plazo_meses = document.querySelector('#plazo_meses').value,
 
-	// if (fotos.length > 0) {
-	// 	for (var i = 0; i < fotos.length; i++) {
-	// 		const fsize = fotos.item(i).size;
-	// 		let file = parseFloat(((fsize / 1024) / 1024).toFixed(2));
-	// 		tamano = tamano + file;
-	// 		if (tamano > 10) {
-	// 			Swal.fire({
-	// 				icon: 'error',
-	// 				title: 'Oops...',
-	// 				text: 'Archivos demasidos grandes, deben de ser menores 10MB'
-	// 			});
-	// 			enviar = false;
-	// 			break;
-	// 		} else if (tamano <= 10) {
-	// 			enviar = true;
-	// 		}
-	// 	}
-	// 	console.log(tamano.toFixed(2) + 'MB');
-	// }
-	//Validar que el campo tenga algo escrito
-	// if (nombres === '' || clase === '' || empresaLabora === '' || rubroEmpresaLabora === '' || correo === '' || address === '' || biografia === '') {
+		nombre_beneficiario = document.querySelector('#nombre_beneficiario').value,
+		identidad_beneficiario = document.querySelector('#identidad_beneficiario').value,
+		direccion_beneficiario = document.querySelector('#direccion_beneficiario').value,
+		ciudad_beneficiario = document.querySelector('#ciudad_beneficiario').value,
+		departamento_beneficiario = document.querySelector('#departamento_beneficiario').value,
+		celular_beneficiario = document.querySelector('#celular_beneficiario').value;
+
 	if (nombres === '') {
 		//validación Falló
 		Swal.fire({
@@ -729,6 +705,12 @@ function validarFicha(e) {
 		datos.append('fecha_cuota', fecha_cuota);
 		datos.append('plazo_pago', plazo_pago);
 		datos.append('plazo_meses', plazo_meses);
+		datos.append('nombre_beneficiario', nombre_beneficiario);
+		datos.append('identidad_beneficiario', identidad_beneficiario);
+		datos.append('direccion_beneficiario', direccion_beneficiario);
+		datos.append('ciudad_beneficiario', ciudad_beneficiario);
+		datos.append('departamento_beneficiario', departamento_beneficiario);
+		datos.append('celular_beneficiario', celular_beneficiario);
 
 		// for (const archivo of fotos) {
 		// 	datos.append('archivos[]', archivo);
@@ -775,6 +757,87 @@ function validarFicha(e) {
 	}
 
 }
+
+function asignarLote(e) {
+	e.preventDefault();
+	if (document.getElementById('lote')) {
+		let tipo = document.querySelector('#tipo').value,
+			id_user = document.querySelector('#ID').value,
+			bloque = document.querySelector('#bloque').value,
+			lote = document.querySelector('#lote').value;
+		console.log(tipo, id_user, bloque, lote);
+
+		if (lote === '') {
+			//validación Falló
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: 'Debe de llenar todos los campos'
+			});
+		} else {
+			//Campos son correctos - Ejecutamos AJAX
+			//Crear  FormData - Datos que se envían al servidor
+			console.log('enviar');
+			let datos = new FormData();
+			datos.append('id_user', id_user);
+			datos.append('bloque', bloque);
+			datos.append('lote', lote);
+			// for (const archivo of fotos) {
+			// 	datos.append('archivos[]', archivo);
+			// }
+
+			datos.append('asignar', tipo);
+			//Crear  el llamado a Ajax
+			let xhr = new XMLHttpRequest();
+			//Abrir la Conexión
+			xhr.open('POST', 'includes/models/model-asignar.php', true);
+
+			//Retorno de Datos
+			xhr.onload = function () {
+				if (this.status === 200) {
+					//esta es la respuesta la que tenemos en el model
+					// let respuesta = xhr.responseText;
+					let respuesta = JSON.parse(xhr.responseText);
+					console.log(respuesta);
+					if (respuesta.respuesta === 'correcto') {
+						//si es un nuevo usuario 
+						if (respuesta.tipo == 'asignar') {
+							Swal.fire({
+								icon: 'success',
+								title: '¡Asignación realizada!',
+								text: 'Ahora cambia el estado del lote',
+								position: 'center',
+								showConfirmButton: true
+
+							}).then(function () {
+								urllote = '?ID=' + lote + '&bloque=' + bloque;
+								window.location = "edicion-lote.php" + urllote;
+							});;
+						}
+					} else {
+						Swal.fire({
+							icon: 'error',
+							title: 'Oops...',
+							text: 'Hubo un error en la solicitud'
+						})
+					}
+				}
+			}
+			// Enviar la petición
+			xhr.send(datos);
+		}
+
+	} else {
+		let id_user = document.querySelector('#ID').value,
+			bloque = document.querySelector('#bloque').value;
+		console.log(id_user, bloque);
+		url = '?ID=' + id_user + '&bloque=' + bloque;
+		window.location = "asignar-lote.php" + url;
+	}
+
+}
+
+
 var checkboxes = document.querySelectorAll('input[type=checkbox]');
 function checkboxClick(event) {
 	const accesorios = document.querySelectorAll('input[type=checkbox]:checked');
@@ -1485,14 +1548,15 @@ function aprobarSolicitudGraduando(e) {
 }
 
 //-------------------Editar Graduado-------------------
-function editarGraduado(e) {
+function editarLote(e) {
 	e.preventDefault();
-	
+
 	let user_id = document.querySelector('#user_id').value,
 		bloque = document.querySelector('#bloque').value,
 		areav2 = document.querySelector('#areav2').value,
 		estado = document.querySelector('#estado').value,
 		path = document.querySelector('#path').value,
+		id_register = document.querySelector('#id_register').value,
 
 		// password = document.querySelector('#password').value,
 		tipo = document.querySelector('#tipo').value;
@@ -1509,13 +1573,14 @@ function editarGraduado(e) {
 
 		//Crear  FormData - Datos que se envían al servidor
 		let datos = new FormData();
+		datos.append('id_register', id_register);
 		datos.append('user_id', user_id);
 		datos.append('bloque', bloque);
 		datos.append('areav2', areav2);
 		datos.append('estado', estado);
 		datos.append('path', path);
 		datos.append('accion', tipo);
-		
+
 		//Crear  el llamado a Ajax
 		let xhr = new XMLHttpRequest();
 		//Abrir la Conexión
@@ -1524,7 +1589,7 @@ function editarGraduado(e) {
 		//Retorno de Datos
 		xhr.onload = function () {
 			if (this.status === 200) {
-				
+
 				//esta es la respuesta la que tenemos en el model
 				// let respuesta = xhr.responseText;
 				let respuesta = JSON.parse(xhr.responseText);

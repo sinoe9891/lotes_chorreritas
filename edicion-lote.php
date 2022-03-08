@@ -58,7 +58,7 @@ date_default_timezone_set('America/Tegucigalpa');
 						</div>
 					</div>
 					<div class="formulario">
-						<form id="editarGraduado" method="post">
+						<form id="editarLote" method="post">
 							<div class="colum-second">
 								<div class="input">
 									<p class="parr">Bloque</p>
@@ -101,10 +101,12 @@ date_default_timezone_set('America/Tegucigalpa');
 											while ($f = $resultRegistro->fetch_assoc()) {
 												$nombre = $f['nombre_completo'];
 												$id_register = $f['id_registro'];
+												echo '<input type="hidden" id="id_register" name="id_register" value="' . $id_register . '" readonly="readonly">';
 												echo '<input type="text" id="nombreRegistro" name="nombreRegistro" value="' . $nombre . '" readonly="readonly">';
 											}
 										} else {
 											$nombre = 'No hay comprador';
+											echo '<input type="hidden" id="id_register" name="id_register" value="0" readonly="readonly">';
 											echo '<input type="text" id="nombreRegistro" name="nombreRegistro" value="' . $nombre . '" readonly="readonly">';
 										}
 										?>
@@ -125,12 +127,12 @@ date_default_timezone_set('America/Tegucigalpa');
 												echo "<option name='estado' value='r'>Reservado</option>";
 												echo "<option name='estado' value='d'>Disponible</option>";
 											} elseif ($estado == 'd') {
-												echo "<option name='estado' value='Disponible' selected>Disponible</option>";
+												echo "<option name='estado' value='d' selected>Disponible</option>";
 												echo "<option name='estado' value='r'>Reservado</option>";
 												echo "<option name='estado' value='v'>Vendido</option>";
 												$estado = 'Disponible';
 											} elseif ($estado == 'r') {
-												echo "<option name='estado' value='Reservado' selected>Reservado</option>";
+												echo "<option name='estado' value='r' selected>Reservado</option>";
 												echo "<option name='estado' value='d'>Disponible</option>";
 												echo "<option name='estado' value='v'>Vendido</option>";
 											}

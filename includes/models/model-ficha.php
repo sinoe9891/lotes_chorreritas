@@ -52,6 +52,21 @@ $telefono_referencia_2 = $_POST['telefono_referencia_2'];
 $empresa_labora_referencia_2 = $_POST['empresa_labora_referencia_2'];
 $telefono_empleo_referencia_2 = $_POST['telefono_empleo_referencia_2'];
 
+$nombre_beneficiario = $_POST['nombre_beneficiario'];
+$identidad_beneficiario = $_POST['identidad_beneficiario'];
+$direccion_beneficiario = $_POST['direccion_beneficiario'];
+$ciudad_beneficiario = $_POST['ciudad_beneficiario'];
+$departamento_beneficiario = $_POST['departamento_beneficiario'];
+$celular_beneficiario = $_POST['celular_beneficiario'];
+
+$fecha_pago = $_POST['fecha_pago'];
+$fecha_primer_cuota = $_POST['fecha_cuota'];
+$plazo_anio = $_POST['plazo_pago'];
+$plazo_meses = $_POST['plazo_meses'];
+
+
+
+
 $accion = $_POST['accion'];
 
 //funcion insertar documento
@@ -70,8 +85,8 @@ if ($accion === 'solicitud') {
 	//Importar la conexión
 	include '../conexion.php';
 	try {
-		$statement = $conn->prepare("INSERT INTO ficha_directorio (fecha_solicitud, hora_solicitud, nombre_completo, fecha_nacimiento, identidad, genero, estado_civil, direccion, telefono, celular, dependientes, correo, ciudad, departamento, profesion, lugar_empleo, direccion_empleo, cargo, tiempo_laborando, telefono_empleo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-		$statement->bind_param('ssssssssssssssssssss', $fechaSolicitud, $horaSolicitud, $name, $fechanac, $identidad, $genero, $estado_civil, $direccion, $telefono, $celular, $dependientes, $email, $ciudad, $departamento, $profesion, $empresa_labora, $direccion_empleo, $cargo, $tiempo_laborando, $telefono_empleo);
+		$statement = $conn->prepare("INSERT INTO ficha_directorio (fecha_solicitud, hora_solicitud, nombre_completo, fecha_nacimiento, identidad, genero, estado_civil, direccion, telefono, celular, dependientes, correo, ciudad, departamento, profesion, lugar_empleo, direccion_empleo, cargo, tiempo_laborando, telefono_empleo, fecha_primer_cuota, plazo_anio, plazo_meses, dia_pago) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+		$statement->bind_param('ssssssssssssssssssssssss', $fechaSolicitud, $horaSolicitud, $name, $fechanac, $identidad, $genero, $estado_civil, $direccion, $telefono, $celular, $dependientes, $email, $ciudad, $departamento, $profesion, $empresa_labora, $direccion_empleo, $cargo, $tiempo_laborando, $telefono_empleo, $fecha_primer_cuota, $plazo_anio, $plazo_meses, $fecha_pago);
 		$statement->execute();
 		$last_id = mysqli_insert_id($conn);
 
@@ -92,6 +107,10 @@ if ($accion === 'solicitud') {
 
 		$statement = $conn->prepare("INSERT INTO referencias (id_registro, nombre_referencia, direccion_referencia, celular_referencia, telefono_referencia, empresa_labora_referencia, telefono_empleo_referencia) VALUES (?,?,?,?,?,?,?)");
 		$statement->bind_param('sssssss', $last_id, $nombre_referencia_2, $direccion_referencia_2, $celular_referencia_2, $telefono_referencia_2, $empresa_labora_referencia_2, $telefono_empleo_referencia_2);
+		$statement->execute();
+		
+		$statement = $conn->prepare("INSERT INTO beneficiario (id_registro, nombre_beneficiario, identidad_beneficiario, direccion_beneficiario, ciudad_beneficiario, departamento_beneficiario, celular_beneficiario) VALUES (?,?,?,?,?,?,?)");
+		$statement->bind_param('sssssss', $last_id, $nombre_beneficiario, $identidad_beneficiario, $direccion_beneficiario, $ciudad_beneficiario, $departamento_beneficiario, $celular_beneficiario);
 		$statement->execute();
 
 		if ($statement->affected_rows > 0) {

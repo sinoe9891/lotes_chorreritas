@@ -2,11 +2,22 @@
 date_default_timezone_set('America/Tegucigalpa');
 $accion = $_POST['accion'];
 $user_id = $_POST['user_id'];
+$id_register = $_POST['id_register'];
 $bloque = $_POST['bloque'];
 $areav2 = $_POST['areav2'];
 $estado = $_POST['estado'];
 $path = $_POST['path'];
 
+if ($estado == 'd') {
+	$estado = 'd';
+	$id_register = 0;
+}elseif ($estado == 'v') {
+	$estado = 'v';
+	$id_register = $_POST['id_register'];
+}elseif($estado == 'r'){
+	$estado = 'r';
+	$id_register = $_POST['id_register'];
+}
 
 //Código para crear administradores
 if ($accion === 'solicitud') {
@@ -14,9 +25,8 @@ if ($accion === 'solicitud') {
     include '../conexion.php';
 
     try {
-        $stmt = $conn->prepare("UPDATE lotes SET  bloque = ?, areav2 = ?, estado = ?, path_lote = ? WHERE id_lote = ?");
-		$stmt->bind_param("sssss", $bloque, $areav2, $estado, $path, $user_id);
-
+        $stmt = $conn->prepare("UPDATE lotes SET  bloque = ?, areav2 = ?, estado = ?, path_lote = ?, id_registro = ? WHERE id_lote = ?");
+		$stmt->bind_param('ssssss', $bloque, $areav2, $estado, $path, $id_register, $user_id);
 		$stmt->execute();
 
         if ($stmt->affected_rows > 0) {
@@ -30,12 +40,12 @@ if ($accion === 'solicitud') {
                 'area' => $areav2,
 				'tipo' => $accion,
 				'bloque' => $bloque,
-				'path' => $path
+				'path' => $path,
+				'id_registro' => $id_register
             );
         } else {
             $respuesta = array(
                 'respuesta' => 'error',
-				'respuesta' => 'correcto',
                 'user_id' => $user_id,
                 'estado' => $estado,
                 'area' => $areav2,

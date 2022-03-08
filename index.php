@@ -24,14 +24,23 @@ include 'includes/templates/header.php';
 								</div>
 							</div>
 						</a>
-						<a href="precontrato.php">
-							<div class="caja-buscar">
+						<a href="ver-fichas.php?mesSolicitud=13">
+							<div class="caja-importar">
 								<div class="img">
-									<img src="images/icons/buscar.svg" alt="">
-									<h3>Ficha<br>Precontrato</h3>
+									<img src="images/icons/solicitudes.svg" alt="">
+									<?php
+									$solicitudes = obtenerFichas('id');
+									if ($solicitudes->num_rows > 0) {
+										echo '<h3><span id="noti-solicitud">' . $solicitudes->num_rows . '</span> Registros<br>de Clientes</h3>';
+									} else {
+										// no hay tareas
+										echo '<h3>Registros<br>de Clientes</h3>';
+									}
+									?>
 								</div>
 							</div>
 						</a>
+						
 						<!-- <?php
 							$mes = date("m");
 							echo '<a href="solicitudes.php?mesSolicitud=13">';
@@ -59,22 +68,7 @@ include 'includes/templates/header.php';
 								</div>
 							</div>
 						</a> 
-						<a href="ver-fichas.php?mesSolicitud=13">
-							<div class="caja-importar">
-								<div class="img">
-									<img src="images/icons/solicitudes.svg" alt="">
-									<?php
-									$solicitudes = obtenerFichas('id');
-									if ($solicitudes->num_rows > 0) {
-										echo '<h3><span id="noti-solicitud">' . $solicitudes->num_rows . '</span> Perfiles<br>de Usuario</h3>';
-									} else {
-										// no hay tareas
-										echo '<h3>Perfiles<br>de Usuario</h3>';
-									}
-									?>
-								</div>
-							</div>
-						</a>
+						
 						<a href="contrato.php">
 							<div class="caja-solicitudes"">
 								<div class="img">
@@ -107,6 +101,14 @@ include 'includes/templates/header.php';
 								</div>
 							</div>
 						</a> -->
+						<a href="precontrato.php">
+							<div class="caja-buscar">
+								<div class="img">
+									<img src="images/icons/buscar.svg" alt="">
+									<h3>Ficha<br>Precontrato</h3>
+								</div>
+							</div>
+						</a>
 						<a href="register.php">
 							<div class="caja-editar">
 								<div class="img">

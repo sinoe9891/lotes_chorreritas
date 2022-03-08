@@ -113,7 +113,27 @@ function obtenerInfoSolicitud($id = null) {
 function obtenerInfoFichaPerfil($id = null) {
     include 'conexion.php';
     try {
-        return $conn->query("SELECT * FROM ficha_directorio WHERE id = {$id}");
+        return $conn->query("SELECT * FROM ficha_directorio a, conyugue b, financiera c WHERE a.id = {$id} and b.id_registro = {$id} and c.id_registro = {$id}");
+
+    } catch(Exception $e) {
+        echo "Error! : " . $e->getMessage();
+        return false;
+    }
+}
+function obtenerRerferencias($id = null) {
+    include 'conexion.php';
+    try {
+        return $conn->query("SELECT * FROM ficha_directorio a, referencias b WHERE a.id = {$id} and b.id_registro = {$id}");
+
+    } catch(Exception $e) {
+        echo "Error! : " . $e->getMessage();
+        return false;
+    }
+}
+function obtenerBeneficiario($id = null) {
+    include 'conexion.php';
+    try {
+        return $conn->query("SELECT * FROM ficha_directorio a, beneficiario b WHERE a.id = {$id} and b.id_registro = {$id}");
 
     } catch(Exception $e) {
         echo "Error! : " . $e->getMessage();
