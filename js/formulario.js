@@ -60,17 +60,17 @@ function validarRegistro(e) {
                             });
                         } else if (respuesta.tipo === 'login') {
                             window.location.href = 'index.php';
-                            Swal.fire({
-                                    type: 'success',
-                                    title: 'Login Correcto',
-                                    text: 'Presiona OK para ser redireccionado'
-                                })
-                            .then(resultado => {
-                                if (resultado.value) {
-                                    //Redirección al login
-                                    window.location.href = 'index.php';
-                                }
-                            })
+                            // Swal.fire({
+                            //         type: 'success',
+                            //         title: 'Login Correcto',
+                            //         text: 'Presiona OK para ser redireccionado'
+                            //     })
+                            // .then(resultado => {
+                            //     if (resultado.value) {
+                            //         //Redirección al login
+                            //         window.location.href = 'index.php';
+                            //     }
+                            // })
                         }
                     } else {
                         Swal.fire({
