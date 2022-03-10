@@ -883,6 +883,9 @@ div.back h3 {
         width: 90%;
         margin: 23px;
     }
+	.nover{
+		display: none;
+	}
 }
 
 @media only screen and (min-width: 768px) {
@@ -1056,7 +1059,7 @@ div.back h3 {
     #formulario-aprobacion {
         width: 100%;
     }
-    #editarGraduado {
+    #editarRegistro {
         width: 100%;
     }
 }
@@ -1209,22 +1212,22 @@ table {
     color: #36b12e;
     font-weight: bold;
 }
-#editarGraduado .colum-second hr {
+#editarRegistro .colum-second hr {
     width: 100%;
     border: 0.1px solid rgba(0, 131, 66, 0.5);
     margin: 10px 0;
 }
-#editarGraduado {
+#editarRegistro {
     width: 100%;
     max-width: 594px;
 }
-#editarGraduado .titulos p {
+#editarRegistro .titulos p {
     text-align: left;
     font-size: 13px;
     line-height: 15px;
 }
 
-#editarGraduado .titulos p span {
+#editarRegistro .titulos p span {
     color: #36b12e;
     font-weight: bold;
 }

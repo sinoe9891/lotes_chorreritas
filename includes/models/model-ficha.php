@@ -6,6 +6,7 @@ $fechaSolicitud = $_POST['fechaSolicitud'];
 $name = $_POST['nombres'];
 $fechanac = $_POST['fechanac'];
 $identidad = $_POST['identidad'];
+$nacionalidad = $_POST['nacionalidad'];
 $genero = $_POST['genero'];
 $estado_civil = $_POST['estado_civil'];
 $direccion = $_POST['direccion'];
@@ -63,7 +64,6 @@ $celular_beneficiario = $_POST['celular_beneficiario'];
 $fecha_pago = $_POST['fecha_pago'];
 $fecha_primer_cuota = $_POST['fecha_cuota'];
 $plazo_anio = $_POST['plazo_pago'];
-$plazo_meses = $_POST['plazo_meses'];
 
 
 
@@ -86,8 +86,8 @@ if ($accion === 'solicitud') {
 	//Importar la conexión
 	include '../conexion.php';
 	try {
-		$statement = $conn->prepare("INSERT INTO ficha_directorio (fecha_solicitud, hora_solicitud, nombre_completo, fecha_nacimiento, identidad, genero, estado_civil, direccion, telefono, celular, dependientes, correo, ciudad, departamento, profesion, lugar_empleo, direccion_empleo, cargo, tiempo_laborando, telefono_empleo, fecha_primer_cuota, plazo_anio, plazo_meses, dia_pago) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-		$statement->bind_param('ssssssssssssssssssssssss', $fechaSolicitud, $horaSolicitud, $name, $fechanac, $identidad, $genero, $estado_civil, $direccion, $telefono, $celular, $dependientes, $email, $ciudad, $departamento, $profesion, $empresa_labora, $direccion_empleo, $cargo, $tiempo_laborando, $telefono_empleo, $fecha_primer_cuota, $plazo_anio, $plazo_meses, $fecha_pago);
+		$statement = $conn->prepare("INSERT INTO ficha_directorio (fecha_solicitud, hora_solicitud, nombre_completo, fecha_nacimiento, nacionalidad, identidad, genero, estado_civil, direccion, telefono, celular, dependientes, correo, ciudad, departamento, profesion, lugar_empleo, direccion_empleo, cargo, tiempo_laborando, telefono_empleo, fecha_primer_cuota, plazo_anio, dia_pago) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+		$statement->bind_param('ssssssssssssssssssssssss', $fechaSolicitud, $horaSolicitud, $name, $fechanac, $nacionalidad, $identidad, $genero, $estado_civil, $direccion, $telefono, $celular, $dependientes, $email, $ciudad, $departamento, $profesion, $empresa_labora, $direccion_empleo, $cargo, $tiempo_laborando, $telefono_empleo, $fecha_primer_cuota, $plazo_anio, $fecha_pago);
 		$statement->execute();
 		$last_id = mysqli_insert_id($conn);
 

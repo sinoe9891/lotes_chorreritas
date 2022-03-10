@@ -31,6 +31,10 @@ function addEventListener() {
 	if (editarGraduate) {
 		editarGraduate.addEventListener('submit', editarLote);
 	}
+	let editRegistro = document.querySelector('#editarRegistro');
+	if (editRegistro) {
+		editRegistro.addEventListener('submit', editarRegistro);
+	}
 	//Detectar Click de eliminar
 	let eliminarImg = document.querySelector('.img-formulario');
 	if (eliminarImg) {
@@ -590,6 +594,7 @@ function validarFicha(e) {
 		tipo = document.querySelector('#tipo').value,
 		fechanac = document.querySelector('#fechanac').value,
 		identidad = document.querySelector('#identidad').value,
+		nacionalidad = document.querySelector('#nacionalidad').value,
 		genero = document.querySelector('#genero').value,
 		estado_civil = document.querySelector('#estado_civil').value,
 		direccion = document.querySelector('#direccion').value,
@@ -634,7 +639,6 @@ function validarFicha(e) {
 		fecha_pago = document.querySelector('#fecha_pago').value,
 		fecha_cuota = document.querySelector('#fecha_cuota').value,
 		plazo_pago = document.querySelector('#plazo_pago').value,
-		plazo_meses = document.querySelector('#plazo_meses').value,
 
 		nombre_beneficiario = document.querySelector('#nombre_beneficiario').value,
 		genero_beneficiario = document.querySelector('#genero_beneficiario').value,
@@ -661,6 +665,7 @@ function validarFicha(e) {
 		datos.append('nombres', nombres);
 		datos.append('fechanac', fechanac);
 		datos.append('identidad', identidad);
+		datos.append('nacionalidad', nacionalidad);
 		datos.append('genero', genero);
 		datos.append('estado_civil', estado_civil);
 		datos.append('direccion', direccion);
@@ -705,7 +710,6 @@ function validarFicha(e) {
 		datos.append('fecha_pago', fecha_pago);
 		datos.append('fecha_cuota', fecha_cuota);
 		datos.append('plazo_pago', plazo_pago);
-		datos.append('plazo_meses', plazo_meses);
 		datos.append('nombre_beneficiario', nombre_beneficiario);
 		datos.append('genero_beneficiario', genero_beneficiario);
 		datos.append('identidad_beneficiario', identidad_beneficiario);
@@ -1558,7 +1562,6 @@ function editarLote(e) {
 		areav2 = document.querySelector('#areav2').value,
 		estado = document.querySelector('#estado').value,
 		path = document.querySelector('#path').value,
-		id_register = document.querySelector('#id_register').value,
 
 		// password = document.querySelector('#password').value,
 		tipo = document.querySelector('#tipo').value;
@@ -1608,6 +1611,181 @@ function editarLote(e) {
 						}).then(function () {
 							url = '?ID=' + user_id + '&bloque=' + bloque;
 							window.location = "editar-lote.php" + url;
+						});
+					}
+				} else {
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Hubo un error en la solicitud'
+					})
+				}
+			}
+		}
+		// Enviar la petición
+		xhr.send(datos);
+	}
+
+}
+
+
+
+function editarRegistro(e) {
+	e.preventDefault();
+
+	let nombres = document.querySelector('#nombre').value,
+	tipo = document.querySelector('#tipo').value,
+	id_user = document.querySelector('#user_id').value, 
+	fechanac = document.querySelector('#fecha_nacimiento').value,
+	identidad = document.querySelector('#identidad').value,
+	nacionalidad = document.querySelector('#nacionalidad').value,
+	genero = document.querySelector('#genero').value,
+	estado_civil = document.querySelector('#estado_civil').value,
+	direccion = document.querySelector('#direccion').value,
+	ciudad = document.querySelector('#ciudad').value,
+	departamento = document.querySelector('#departamento').value,
+	email = document.querySelector('#correo').value,
+	celular = document.querySelector('#celular').value,
+	telefono = document.querySelector('#telefono').value,
+	dependientes = document.querySelector('#dependientes').value,
+	profesion = document.querySelector('#profesion').value,
+	empresa_labora = document.querySelector('#lugar_empleo').value,
+	direccion_empleo = document.querySelector('#direccion_empleo').value,
+	telefono_empleo = document.querySelector('#telefono_empleo').value,
+	cargo = document.querySelector('#cargo').value,
+	tiempo_laborando = document.querySelector('#tiempo_laborando').value,
+	pais_reside = document.querySelector('#pais_reside').value,
+	
+	sueldos = document.querySelector('#sueldos').value,
+	remesas = document.querySelector('#remesas').value,
+	otros_ingresos = document.querySelector('#otros_ingresos').value,
+	prestamos = document.querySelector('#prestamos').value,
+	alquiler = document.querySelector('#alquiler').value,
+	otros_egresos = document.querySelector('#otros_egresos').value,
+	
+	nombre_conyugue = document.querySelector('#nombre_conyugue').value,
+	fechnac_conyugue = document.querySelector('#fechanac_conyugue').value,
+	identidad_conyugue = document.querySelector('#identidad_conyugue').value,
+	celular_conyugue = document.querySelector('#celular_conyugue').value,
+	empresa_labora_conyugue = document.querySelector('#empresa_labora_conyugue').value,
+	telefono_empleo_conyugue = document.querySelector('#telefono_empleo_conyugue').value,
+	cargo_conyugue = document.querySelector('#cargo_conyugue').value,
+	tiempo_laborando_conyugue = document.querySelector('#tiempo_laborando_conyugue').value,
+
+	nombre_referencia_1 = document.querySelector('#nombre_referencia_1').value,
+	direccion_referencia_1 = document.querySelector('#direccion_referencia_1').value,
+	celular_referencia_1 = document.querySelector('#celular_referencia_1').value,
+	telefono_referencia_1 = document.querySelector('#telefono_referencia_1').value,
+	empresa_labora_referencia_1 = document.querySelector('#empresa_labora_referencia_1').value,
+	telefono_empleo_referencia_1 = document.querySelector('#telefono_empleo_referencia_1').value,
+	nombre_referencia_2 = document.querySelector('#nombre_referencia_2').value,
+	direccion_referencia_2 = document.querySelector('#direccion_referencia_2').value,
+	celular_referencia_2 = document.querySelector('#celular_referencia_2').value,
+	telefono_referencia_2 = document.querySelector('#telefono_referencia_2').value,
+	empresa_labora_referencia_2 = document.querySelector('#empresa_labora_referencia_2').value,
+	telefono_empleo_referencia_2 = document.querySelector('#telefono_empleo_referencia_2').value,
+	
+	nombre_beneficiario = document.querySelector('#nombre_beneficiario').value,
+	genero_beneficiario = document.querySelector('#genero_beneficiario').value,
+	identidad_beneficiario = document.querySelector('#identidad_beneficiario').value,
+	direccion_beneficiario = document.querySelector('#direccion_beneficiario').value,
+	ciudad_beneficiario = document.querySelector('#ciudad_beneficiario').value,
+	departamento_beneficiario = document.querySelector('#departamento_beneficiario').value,
+	celular_beneficiario = document.querySelector('#celular_beneficiario').value;
+	//Validar que el campo tenga algo escrito
+	if (nombres === '' || nombre_beneficiario === '' || identidad_beneficiario === '' || identidad === '') {
+		//validación Falló
+		Swal.fire({
+			icon: 'error',
+			title: 'Oops...',
+			text: 'Debe de llenar al menos un campo'
+		});
+	} else {
+		//Campos son correctos - Ejecutamos AJAX
+
+		//Crear  FormData - Datos que se envían al servidor
+		let datos = new FormData();
+		datos.append('id_user', id_user);
+		datos.append('nombres', nombres);
+		datos.append('fechanac', fechanac);
+		datos.append('identidad', identidad);
+		datos.append('nacionalidad', nacionalidad);
+		datos.append('genero', genero);
+		datos.append('estado_civil', estado_civil);
+		datos.append('direccion', direccion);
+		datos.append('ciudad', ciudad);
+		datos.append('departamento', departamento);
+		datos.append('email', email);
+		datos.append('celular', celular);
+		datos.append('telefono', telefono);
+		datos.append('dependientes', dependientes);
+		datos.append('profesion', profesion);
+		datos.append('empresa_labora', empresa_labora);
+		datos.append('direccion_empleo', direccion_empleo);
+		datos.append('telefono_empleo', telefono_empleo);
+		datos.append('cargo', cargo);
+		datos.append('tiempo_laborando', tiempo_laborando);
+		datos.append('pais_reside', pais_reside);
+		datos.append('sueldos', sueldos);
+		datos.append('remesas', remesas);
+		datos.append('otros_ingresos', otros_ingresos);
+		datos.append('prestamos', prestamos);
+		datos.append('alquiler', alquiler);
+		datos.append('otros_egresos', otros_egresos);
+		datos.append('nombre_conyugue', nombre_conyugue);
+		datos.append('fechnac_conyugue', fechnac_conyugue);
+		datos.append('identidad_conyugue', identidad_conyugue);
+		datos.append('celular_conyugue', celular_conyugue);
+		datos.append('empresa_labora_conyugue', empresa_labora_conyugue);
+		datos.append('telefono_empleo_conyugue', telefono_empleo_conyugue);
+		datos.append('cargo_conyugue', cargo_conyugue);
+		datos.append('tiempo_laborando_conyugue', tiempo_laborando_conyugue);
+		datos.append('nombre_referencia_1', nombre_referencia_1);
+		datos.append('direccion_referencia_1', direccion_referencia_1);
+		datos.append('celular_referencia_1', celular_referencia_1);
+		datos.append('telefono_referencia_1', telefono_referencia_1);
+		datos.append('empresa_labora_referencia_1', empresa_labora_referencia_1);
+		datos.append('telefono_empleo_referencia_1', telefono_empleo_referencia_1);
+		datos.append('nombre_referencia_2', nombre_referencia_2);
+		datos.append('direccion_referencia_2', direccion_referencia_2);
+		datos.append('celular_referencia_2', celular_referencia_2);
+		datos.append('telefono_referencia_2', telefono_referencia_2);
+		datos.append('empresa_labora_referencia_2', empresa_labora_referencia_2);
+		datos.append('telefono_empleo_referencia_2', telefono_empleo_referencia_2);
+		datos.append('nombre_beneficiario', nombre_beneficiario);
+		datos.append('genero_beneficiario', genero_beneficiario);
+		datos.append('identidad_beneficiario', identidad_beneficiario);
+		datos.append('direccion_beneficiario', direccion_beneficiario);
+		datos.append('ciudad_beneficiario', ciudad_beneficiario);
+		datos.append('departamento_beneficiario', departamento_beneficiario);
+		datos.append('celular_beneficiario', celular_beneficiario);
+		datos.append('accion', tipo);
+
+		//Crear  el llamado a Ajax
+		let xhr = new XMLHttpRequest();
+		//Abrir la Conexión
+		xhr.open('POST', 'includes/models/model-editar-registro.php', true);
+
+		//Retorno de Datos
+		xhr.onload = function () {
+			if (this.status === 200) {
+
+				//esta es la respuesta la que tenemos en el model
+				// let respuesta = xhr.responseText;
+				let respuesta = JSON.parse(xhr.responseText);
+				console.log(respuesta);
+				if (respuesta.respuesta === 'correcto') {
+					//si es un nuevo usuario 
+					if (respuesta.tipo == 'solicitud') {
+						Swal.fire({
+							icon: 'success',
+							title: '¡Registro Actualizado!',
+							text: 'Esta solicitud se ha realizado con éxito',
+							position: 'center',
+							showConfirmButton: true
+						}).then(function () {
+							url = '?nombres=' + nombres + '&identidad=' + identidad;
+							window.location = "editar-perfil.php" + url;
 						});
 					}
 				} else {

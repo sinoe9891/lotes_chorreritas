@@ -149,7 +149,7 @@ include 'includes/templates/header.php';
 					<table style="width:100%" id="tabla">
 						<tr>
 							<th>No.</th>
-							<th>Fecha Solicitud</th>
+							<th class="nover">Fecha Solicitud</th>
 							<th>Nombre Completo</th>
 							<th>Gestionar</th>
 						</tr>
@@ -163,7 +163,7 @@ include 'includes/templates/header.php';
 								<td>
 									<p><?php echo $numero--; ?></p>
 								</td>
-								<td>
+								<td  class="nover">
 									<p><?php echo $solicitud['hora_solicitud'] . " | " . date("d-m-Y", strtotime($solicitud['fecha_solicitud'])); ?></p>
 								</td>
 								<td>

@@ -71,6 +71,15 @@ date_default_timezone_set('America/Tegucigalpa');
 							</div>
 						</div>
 						<div class="full-width input">
+							<p>Nacionalidad</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<img src="images/icons/profile.svg" alt="">
+								</div>
+								<input type="text" name="nacionalidad" id="nacionalidad" value="" placeholder="Ej. hondureña en mínuscula">
+							</div>
+						</div>
+						<div class="full-width input">
 							<p>Identidad</p>
 							<div class="full-width-field campo-ficha">
 								<div class="icon">
@@ -229,65 +238,6 @@ date_default_timezone_set('America/Tegucigalpa');
 							</div>
 						</div>
 						<div class="titulo-form">
-							<h3>Información Financiera</h3>
-						</div>
-						<div class="full-width input">
-							<p class="bold">Ingresos Mensuales</p>
-							<p>Sueldos</p>
-							<div class="full-width-field campo-ficha">
-								<div class="icon">
-									<img src="images/icons/profile.svg" alt="">
-								</div>
-								<input type="number" name="sueldos" id="sueldos" value="" placeholder="L. 10,000.00">
-							</div>
-						</div>
-						<div class="full-width input">
-							<p>Remesas/Comisiones</p>
-							<div class="full-width-field campo-ficha">
-								<div class="icon">
-									<img src="images/icons/profile.svg" alt="">
-								</div>
-								<input type="number" name="remesas" id="remesas" value="" placeholder="L. 10,000.00">
-							</div>
-						</div>
-						<div class="full-width input">
-							<p>Otros</p>
-							<div class="full-width-field campo-ficha">
-								<div class="icon">
-									<img src="images/icons/profile.svg" alt="">
-								</div>
-								<input type="number" name="otros_ingresos" id="otros_ingresos" value="" placeholder="L. 10,000.00">
-							</div>
-						</div>
-						<div class="full-width input">
-							<p class="bold">Egresos Mensuales</p>
-							<p>Prestamos</p>
-							<div class="full-width-field campo-ficha">
-								<div class="icon">
-									<img src="images/icons/profile.svg" alt="">
-								</div>
-								<input type="number" name="prestamos" id="prestamos" value="" placeholder="L. 10,000.00">
-							</div>
-						</div>
-						<div class="full-width input">
-							<p>Alquiler/Alimentación</p>
-							<div class="full-width-field campo-ficha">
-								<div class="icon">
-									<img src="images/icons/profile.svg" alt="">
-								</div>
-								<input type="number" name="alquiler" id="alquiler" value="" placeholder="L. 10,000.00">
-							</div>
-						</div>
-						<div class="full-width input">
-							<p>Otros</p>
-							<div class="full-width-field campo-ficha">
-								<div class="icon">
-									<img src="images/icons/profile.svg" alt="">
-								</div>
-								<input type="number" name="otros_egresos" id="otros_egresos" value="" placeholder="L. 10,000.00">
-							</div>
-						</div>
-						<div class="titulo-form">
 							<h3>Datos Personales del Conyuge</h3>
 						</div>
 						<div class="full-width input">
@@ -433,6 +383,65 @@ date_default_timezone_set('America/Tegucigalpa');
 							</div>
 						</div>
 						<div class="titulo-form">
+							<h3>Información Financiera</h3>
+						</div>
+						<div class="full-width input">
+							<p class="bold">Ingresos Mensuales</p>
+							<p>Sueldos</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<img src="images/icons/profile.svg" alt="">
+								</div>
+								<input type="number" name="sueldos" id="sueldos" value="" placeholder="L. 10,000.00">
+							</div>
+						</div>
+						<div class="full-width input">
+							<p>Remesas/Comisiones</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<img src="images/icons/profile.svg" alt="">
+								</div>
+								<input type="number" name="remesas" id="remesas" value="" placeholder="L. 10,000.00">
+							</div>
+						</div>
+						<div class="full-width input">
+							<p>Otros</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<img src="images/icons/profile.svg" alt="">
+								</div>
+								<input type="number" name="otros_ingresos" id="otros_ingresos" value="" placeholder="L. 10,000.00">
+							</div>
+						</div>
+						<div class="full-width input">
+							<p class="bold">Egresos Mensuales</p>
+							<p>Prestamos</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<img src="images/icons/profile.svg" alt="">
+								</div>
+								<input type="number" name="prestamos" id="prestamos" value="" placeholder="L. 10,000.00">
+							</div>
+						</div>
+						<div class="full-width input">
+							<p>Alquiler/Alimentación</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<img src="images/icons/profile.svg" alt="">
+								</div>
+								<input type="number" name="alquiler" id="alquiler" value="" placeholder="L. 10,000.00">
+							</div>
+						</div>
+						<div class="full-width input">
+							<p>Otros</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<img src="images/icons/profile.svg" alt="">
+								</div>
+								<input type="number" name="otros_egresos" id="otros_egresos" value="" placeholder="L. 10,000.00">
+							</div>
+						</div>
+						<div class="titulo-form">
 							<h3>Referencias Personales</h3>
 						</div>
 						<div class="full-width input">
@@ -573,15 +582,6 @@ date_default_timezone_set('America/Tegucigalpa');
 									<i class="fa fa-calendar" aria-hidden="true"></i>
 								</div>
 								<input type="number" id="plazo_pago" name="plazo_pago" placeholder="10 Años" max="10" min="1">
-							</div>
-						</div>
-						<div class="full-width input">
-							<p>Plazo en Meses</p>
-							<div class="full-width-field campo-ficha">
-								<div class="icon">
-									<i class="fa fa-calendar" aria-hidden="true"></i>
-								</div>
-								<input type="number" id="plazo_meses" name="plazo_meses" placeholder="120 meses" max="120" min="12">
 							</div>
 						</div>
 					</div>

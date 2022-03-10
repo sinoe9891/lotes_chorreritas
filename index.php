@@ -60,6 +60,22 @@ include 'includes/templates/header.php';
 								</div>
 							</div>
 						</a> -->
+						<a href="ver-lotes.php">
+							<div class="caja-solicitudes" style="background-color:#9b59b6;">
+								<div class="img">
+									<img src="images/icons/editar.svg" alt="">
+									<h3>Ver <br> Lista de Lotes</h3>
+								</div>
+							</div>
+						</a>
+						<a href="editar-perfil.php">
+							<div class="caja-solicitudes">
+								<div class="img">
+									<img src="images/icons/editar.svg" alt="">
+									<h3>Editar <br>Registro Cliente</h3>
+								</div>
+							</div>
+						</a>
 						 <a href="editar-lote.php">
 							<div class="caja-editar">
 								<div class="img">
@@ -68,9 +84,8 @@ include 'includes/templates/header.php';
 								</div>
 							</div>
 						</a> 
-						
 						<a href="contrato.php">
-							<div class="caja-solicitudes"">
+							<div class="caja-usuario">
 								<div class="img">
 									<img src="images/icons/buscar.svg" alt="">
 									<h3>Generar <br>Contrato</h3>
@@ -110,7 +125,7 @@ include 'includes/templates/header.php';
 							</div>
 						</a>
 						<a href="register.php">
-							<div class="caja-editar">
+							<div class="caja-nuevo">
 								<div class="img">
 									<img src="images/icons/new-user.svg" alt="">
 									<h3>Crear <br>Usuario</h3>

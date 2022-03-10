@@ -98,6 +98,28 @@ function obtenerInfoLote($id = null) {
         return false;
     }
 }
+/* Obtener todos las solicitudes de actualización */
+function obtenerListaLote() {
+    include 'conexion.php';
+    try {
+        return $conn->query("SELECT * FROM lotes");
+
+    } catch(Exception $e) {
+        echo "Error! : " . $e->getMessage();
+        return false;
+    }
+}
+/* Obtener todos las solicitudes de actualización */
+function obtenerInfoLoteCliente($id = null) {
+    include 'conexion.php';
+    try {
+        return $conn->query("SELECT * FROM lotes WHERE id_registro = {$id}");
+
+    } catch(Exception $e) {
+        echo "Error! : " . $e->getMessage();
+        return false;
+    }
+}
 
 /* Obtener todos las solicitudes de actualización */
 function obtenerInfoSolicitud($id = null) {
@@ -124,6 +146,16 @@ function obtenerRerferencias($id = null) {
     include 'conexion.php';
     try {
         return $conn->query("SELECT * FROM ficha_directorio a, referencias b WHERE a.id = {$id} and b.id_registro = {$id}");
+
+    } catch(Exception $e) {
+        echo "Error! : " . $e->getMessage();
+        return false;
+    }
+}
+function obtenerFinanciera($id = null) {
+    include 'conexion.php';
+    try {
+        return $conn->query("SELECT * FROM ficha_directorio a, financiera b WHERE a.id = {$id} and b.id_registro = {$id}");
 
     } catch(Exception $e) {
         echo "Error! : " . $e->getMessage();
