@@ -788,10 +788,6 @@ function asignarLote(e) {
 			datos.append('id_user', id_user);
 			datos.append('bloque', bloque);
 			datos.append('lote', lote);
-			// for (const archivo of fotos) {
-			// 	datos.append('archivos[]', archivo);
-			// }
-
 			datos.append('asignar', tipo);
 			//Crear  el llamado a Ajax
 			let xhr = new XMLHttpRequest();
@@ -816,8 +812,8 @@ function asignarLote(e) {
 								showConfirmButton: true
 
 							}).then(function () {
-								urllote = '?ID=' + lote + '&bloque=' + bloque;
-								window.location = "edicion-lote.php" + urllote;
+								// urllote = '?ID=' + lote + '&bloque=' + bloque;
+								// window.location = "edicion-lote.php" + urllote;
 							});;
 						}
 					} else {
@@ -1672,12 +1668,15 @@ function editarRegistro(e) {
 	cargo_conyugue = document.querySelector('#cargo_conyugue').value,
 	tiempo_laborando_conyugue = document.querySelector('#tiempo_laborando_conyugue').value,
 
+	id_referencia_1 = document.querySelector('#id_referencia_1').value,
 	nombre_referencia_1 = document.querySelector('#nombre_referencia_1').value,
 	direccion_referencia_1 = document.querySelector('#direccion_referencia_1').value,
 	celular_referencia_1 = document.querySelector('#celular_referencia_1').value,
 	telefono_referencia_1 = document.querySelector('#telefono_referencia_1').value,
 	empresa_labora_referencia_1 = document.querySelector('#empresa_labora_referencia_1').value,
 	telefono_empleo_referencia_1 = document.querySelector('#telefono_empleo_referencia_1').value,
+	
+	id_referencia_2 = document.querySelector('#id_referencia_2').value,
 	nombre_referencia_2 = document.querySelector('#nombre_referencia_2').value,
 	direccion_referencia_2 = document.querySelector('#direccion_referencia_2').value,
 	celular_referencia_2 = document.querySelector('#celular_referencia_2').value,
@@ -1740,12 +1739,14 @@ function editarRegistro(e) {
 		datos.append('telefono_empleo_conyugue', telefono_empleo_conyugue);
 		datos.append('cargo_conyugue', cargo_conyugue);
 		datos.append('tiempo_laborando_conyugue', tiempo_laborando_conyugue);
+		datos.append('id_referencia_1', id_referencia_1);
 		datos.append('nombre_referencia_1', nombre_referencia_1);
 		datos.append('direccion_referencia_1', direccion_referencia_1);
 		datos.append('celular_referencia_1', celular_referencia_1);
 		datos.append('telefono_referencia_1', telefono_referencia_1);
 		datos.append('empresa_labora_referencia_1', empresa_labora_referencia_1);
 		datos.append('telefono_empleo_referencia_1', telefono_empleo_referencia_1);
+		datos.append('id_referencia_2', id_referencia_2);
 		datos.append('nombre_referencia_2', nombre_referencia_2);
 		datos.append('direccion_referencia_2', direccion_referencia_2);
 		datos.append('celular_referencia_2', celular_referencia_2);

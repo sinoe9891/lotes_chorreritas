@@ -120,7 +120,7 @@ include 'includes/templates/header.php';
 							<div class="caja-buscar">
 								<div class="img">
 									<img src="images/icons/buscar.svg" alt="">
-									<h3>Ficha<br>Precontrato</h3>
+									<h3>Formulario<br>Cliente</h3>
 								</div>
 							</div>
 						</a>

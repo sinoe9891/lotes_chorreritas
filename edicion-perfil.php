@@ -117,7 +117,7 @@ date_default_timezone_set('America/Tegucigalpa');
 										<div class="icon">
 											<img src="images/icons/profile.svg" alt="">
 										</div>
-										<input type="text" id="nacionalidad" name="nacionalidad" value="<?php echo $nacionalidad; ?>">
+										<input type="text" id="nacionalidad" name="nacionalidad" value="<?php echo $nacionalidad; ?>" placeholder="Nacionalidad">
 									</div>
 								</div>
 							</div>
@@ -127,7 +127,7 @@ date_default_timezone_set('America/Tegucigalpa');
 										<div class="icon">
 											<img src="images/icons/profile.svg" alt="">
 										</div>
-										<input type="text" id="identidad" name="identidad" value="<?php echo $identidad; ?>">
+										<input type="text" id="identidad" name="identidad" value="<?php echo $identidad; ?>" placeholder="Identidad">
 									</div>
 								</div>
 								<div class="input">
@@ -456,7 +456,7 @@ date_default_timezone_set('America/Tegucigalpa');
 												<div class="icon">
 													<img src="images/icons/profile.svg" alt="">
 												</div>
-												<input type="text" id="nombre_beneficiario" name="nombre_beneficiario" value="<?php echo $nombre_beneficiario; ?>">
+												<input type="text" id="nombre_beneficiario" name="nombre_beneficiario" value="<?php echo $nombre_beneficiario; ?>" placeholder="Nombre Completo">
 											</div>
 										</div>
 										<div class="input">
@@ -464,7 +464,7 @@ date_default_timezone_set('America/Tegucigalpa');
 												<div class="icon">
 													<img src="images/icons/profile.svg" alt="">
 												</div>
-												<input type="text" id="identidad_beneficiario" name="identidad_beneficiario" value="<?php echo $identidad_beneficiario; ?>">
+												<input type="text" id="identidad_beneficiario" name="identidad_beneficiario" value="<?php echo $identidad_beneficiario; ?>" placeholder="0801-1989-07280"required>
 											</div>
 										</div>
 									</div>
@@ -616,6 +616,7 @@ date_default_timezone_set('America/Tegucigalpa');
 								while ($row = $referenciasQuery->fetch_assoc()) {
 									//Referencias
 									$contador++;
+									$id_referencia = $row['id_referencia'];
 									$nombre_referencia = $row['nombre_referencia'];
 									$direccion_referencia = $row['direccion_referencia'];
 									$celular_referencia = $row['celular_referencia'];
@@ -632,6 +633,7 @@ date_default_timezone_set('America/Tegucigalpa');
 												<div class="icon">
 													<i class="fas fa-user"></i>
 												</div>
+												<input type="hidden" name="id_referencia_<?php echo $contador; ?>" id="id_referencia_<?php echo $contador; ?>" value="<?php echo $id_referencia; ?>" placeholder="id_referencia">
 												<input type="text" name="nombre_referencia_<?php echo $contador; ?>" id="nombre_referencia_<?php echo $contador; ?>" value="<?php echo $nombre_referencia; ?>" placeholder="Nombre">
 											</div>
 										</div>

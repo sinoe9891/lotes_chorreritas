@@ -120,7 +120,7 @@ if (isset($_GET['ID'])) {
 												$bloque = $row['bloque'];
 												$lotes = $bloque . '-' . $lote;
 												$text = $lotes;
-												echo $sep . $text;
+												echo '<a href="edicion-lote.php?ID='.$lote.'1&bloque='.$bloque.'">'.$sep . $text.'</a>';	
 												$sep = ', ';
 											};
 										} else {

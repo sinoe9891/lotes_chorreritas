@@ -133,7 +133,7 @@ include 'includes/templates/header.php';
 									$consult = obtenerInfoSolicitud($idregister);
 									if ($consult->num_rows > 0){
 										$row = $consult->fetch_array();
-										echo $row['nombre_completo'].'<a href="ver-perfil-ficha.php?ID='.$idregister.'" target="_self"><i class="fas fa-eye"></i></a>';
+										echo $row['nombre_completo'].'<a href="ver-perfil-ficha.php?ID='.$idregister.'" target="_self"> [Ver <i class="fas fa-eye"></i>]</a>';
 									} else {
 										echo 'Sin asignar';
 									}

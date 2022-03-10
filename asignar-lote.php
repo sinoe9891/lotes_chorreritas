@@ -25,11 +25,11 @@ if (isset($_GET['bloque'])) {
 	if (isset($_GET['lote'])) {
 		$bloquenum = $_GET["bloque"];
 		$lotenum = $_GET["lote"];
-		$lotes = "SELECT * FROM `lotes` WHERE `bloque` LIKE '$bloquenum'";
+		$lotes = "SELECT * FROM `lotes` WHERE `bloque` LIKE '$bloquenum' AND `estado` = 'd'";
 		echo "<script>alert('Entró)</script>";
 		// $lotesQuery = $conn->query($lotes);
 	} else {
-		$lotes = "SELECT * FROM `lotes` WHERE `bloque` LIKE '$bloquenum'";
+		$lotes = "SELECT * FROM `lotes` WHERE `bloque` LIKE '$bloquenum' AND `estado` = 'd'";
 		echo "<script>alert('Entró NADA)</script>";
 	}
 	$lotesQuery = $conn->query($lotes);
@@ -92,7 +92,7 @@ if (isset($_GET['bloque'])) {
 									$readonly = "";
 								if (isset($_GET['bloque'])) {
 									$ver = "none";
-									$readonly = 'disabled="disabled" Hola';
+									$readonly = 'disabled="disabled"';
 								}
 								echo '<select required class="bloque" name="bloque" id="bloque" ><option value="" '.$readonly. '>Selecciona Bloque</option>';
 								$numero_paises = 0;
