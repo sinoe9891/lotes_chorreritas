@@ -10,22 +10,6 @@ if (isset($_GET['ID'])) {
 date_default_timezone_set('America/Tegucigalpa');
 ?>
 
-<!-- <div class="contenedor">
-	<div class="contenedor-index">
-		<div class="nav-logo">
-			<div class="logo graduate-logo">
-				<div class="caja">
-					<a href="https://www.zamorano.edu/graduados/">
-						<div class="back">
-							<img src="images/icons/arrow-left.svg" alt="">
-							<p style="margin-left:5px;">Ir a Graduados Zamorano</p>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div> -->
 <div class="contenedor">
 	<div class="contenedor-index">
 		<div class="titulo-ficha">
@@ -115,6 +99,15 @@ date_default_timezone_set('America/Tegucigalpa');
 									<option value="4">Viudo(a)</option>
 									<option value="5">Unión Libre</option>
 								</select>
+							</div>
+						</div>
+						<div class="full-width input">
+							<p>País donde Vive</p>
+							<div class="full-width-field campo-ficha">
+								<div class="icon">
+									<i class="fas fa-flag"></i>
+								</div>
+								<input type="text" name="pais_reside" id="pais_reside" value="" placeholder="Ej. Honduras">
 							</div>
 						</div>
 						<div class="full-width input">
@@ -541,7 +534,7 @@ date_default_timezone_set('America/Tegucigalpa');
 							<div class="full-width-field campo-ficha">
 								<div class="icon">
 									<i class="fas fa-building"></i>
-								</div> 
+								</div>
 								<input type="text" id="empresa_labora_referencia_2" value="" placeholder="Ej. Col. Ruben Darío, Tegucigalpa, …">
 							</div>
 						</div>
@@ -572,7 +565,7 @@ date_default_timezone_set('America/Tegucigalpa');
 								<div class="icon">
 									<i class="fa fa-calendar" aria-hidden="true"></i>
 								</div>
-								<input type="date" id="fecha_cuota" name="fecha_cuota" placeholder="" >
+								<input type="date" id="fecha_cuota" name="fecha_cuota" placeholder="">
 							</div>
 						</div>
 						<div class="full-width input">

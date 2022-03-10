@@ -63,40 +63,21 @@ $departamento_beneficiario = $_POST['departamento_beneficiario'];
 $celular_beneficiario = $_POST['celular_beneficiario'];
 $accion = $_POST['accion'];
 
-// if ($estado == 'd') {
-// 	$estado = 'd';
-// 	$id_register = 0;
-// } elseif ($estado == 'v') {
-// 	$estado = 'v';
-// 	$id_register = $_POST['id_register'];
-// } elseif ($estado == 'r') {
-// 	$estado = 'r';
-// 	$id_register = $_POST['id_register'];
-// }
-
 //Código para crear administradores
 if ($accion === 'solicitud') {
 	//Importar la conexión
 	include '../conexion.php';
 	//nombre_completo, fecha_nacimiento, nacionalidad, identidad, genero, estado_civil, direccion, ciudad, departamento, telefono, celular, dependientes, correo, profesion, lugar_empleo, direccion_empleo, cargo, tiempo_laborando, telefono_empleo
 	try {
-		$stmt = $conn->prepare("UPDATE ficha_directorio a, conyugue b, beneficiario c, financiera d, referencias e SET a.nombre_completo= ?, a.fecha_nacimiento= ?, a.nacionalidad= ?, a.identidad= ?, a.genero= ?, a.estado_civil= ?, a.direccion= ?, a.ciudad= ?, a.departamento= ?, a.telefono= ?, a.celular= ?, a.dependientes= ?, a.correo= ?, a.profesion= ?, a.lugar_empleo= ?, a.direccion_empleo= ?, a.cargo= ?, a.tiempo_laborando= ?, a.telefono_empleo = ?, a.pais_reside = ?, b.nombre_conyugue= ?, b.identidad_conyugue= ?, b.fechnac_conyugue= ?, b.celular_conyugue= ?, b.empresa_labora_conyugue= ?, b.telefono_empleo_conyugue= ?, b.cargo_conyugue= ?, b.tiempo_laborando_conyugue= ?, c.nombre_beneficiario = ?, c.identidad_beneficiario = ?, c.genero_beneficiario = ?, c.direccion_beneficiario = ?, c.ciudad_beneficiario = ?, c.departamento_beneficiario = ?, c.celular_beneficiario= ?, d.id_financiera= ?, d.sueldos=?, d.remesas=?, d.otros_ingresos=?, d.prestamos=?, d.alquiler=?, d.otros_egresos=?, e.nombre_referencia = ? WHERE a.id = ? and b.id_registro = ? and c.id_registro = ? and d.id_registro = ? and e.id_referencia = ? and e.id_registro = ?");
-		$stmt->bind_param('sssssssssssssssssssssssssssssssssssssssssssssssss', $nombres, $fechanac, $nacionalidad, $identidad, $genero, $estado_civil, $direccion, $ciudad, $departamento, $telefono, $celular, $dependientes, $email, $profesion, $empresa_labora, $direccion_empleo, $cargo, $tiempo_laborando, $telefono_empleo, $pais_reside, $nombre_conyugue, $identidad_conyugue, $fechnac_conyugue,  $celular_conyugue, $empresa_labora_conyugue, $telefono_empleo_conyugue, $cargo_conyugue, $tiempo_laborando_conyugue, $nombre_beneficiario, $identidad_beneficiario, $genero_beneficiario, $direccion_beneficiario, $ciudad_beneficiario, $departamento_beneficiario, $celular_beneficiario, $id_financiera, $sueldos, $remesas, $otros_ingresos, $prestamos, $alquiler, $otros_egresos, $nombre_referencia_1, $id_user, $id_user, $id_user, $id_user, $id_referencia_1, $id_user);
+		$stmt = $conn->prepare("UPDATE ficha_directorio a, conyugue b, beneficiario c, financiera d, referencias e SET a.nombre_completo= ?, a.fecha_nacimiento= ?, a.nacionalidad= ?, a.identidad= ?, a.genero= ?, a.estado_civil= ?, a.direccion= ?, a.ciudad= ?, a.departamento= ?, a.telefono= ?, a.celular= ?, a.dependientes= ?, a.correo= ?, a.profesion= ?, a.lugar_empleo= ?, a.direccion_empleo= ?, a.cargo= ?, a.tiempo_laborando= ?, a.telefono_empleo = ?, a.pais_reside = ?, b.nombre_conyugue= ?, b.identidad_conyugue= ?, b.fechnac_conyugue= ?, b.celular_conyugue= ?, b.empresa_labora_conyugue= ?, b.telefono_empleo_conyugue= ?, b.cargo_conyugue= ?, b.tiempo_laborando_conyugue= ?, c.nombre_beneficiario = ?, c.identidad_beneficiario = ?, c.genero_beneficiario = ?, c.direccion_beneficiario = ?, c.ciudad_beneficiario = ?, c.departamento_beneficiario = ?, c.celular_beneficiario= ?, d.sueldos=?, d.remesas=?, d.otros_ingresos=?, d.prestamos=?, d.alquiler=?, d.otros_egresos=?, e.nombre_referencia = ?, e.direccion_referencia = ?, e.celular_referencia = ?, e.telefono_referencia= ?, e.empresa_labora_referencia=?, e.telefono_empleo_referencia=?  WHERE a.id = ? and b.id_registro = ? and c.id_registro = ? and d.id_registro = ? and e.id_referencia = ? and e.id_registro = ?");
+		$stmt->bind_param('sssssssssssssssssssssssssssssssssssssssssssssssssssss', $nombres, $fechanac, $nacionalidad, $identidad, $genero, $estado_civil, $direccion, $ciudad, $departamento, $telefono, $celular, $dependientes, $email, $profesion, $empresa_labora, $direccion_empleo, $cargo, $tiempo_laborando, $telefono_empleo, $pais_reside, $nombre_conyugue, $identidad_conyugue, $fechnac_conyugue,  $celular_conyugue, $empresa_labora_conyugue, $telefono_empleo_conyugue, $cargo_conyugue, $tiempo_laborando_conyugue, $nombre_beneficiario, $identidad_beneficiario, $genero_beneficiario, $direccion_beneficiario, $ciudad_beneficiario, $departamento_beneficiario, $celular_beneficiario, $sueldos, $remesas, $otros_ingresos, $prestamos, $alquiler, $otros_egresos, $nombre_referencia_1, $direccion_referencia_1, $celular_referencia_1, $telefono_referencia_1, $empresa_labora_referencia_1, $telefono_empleo_referencia_1, $id_user, $id_user, $id_user, $id_user, $id_referencia_1, $id_user);
 		$stmt->execute();
-		
-		
 
-// nombre_referencia	
-// direccion_referencia	
-// celular_referencia	
-// telefono_referencia	
-// empresa_labora_referencia	
-// telefono_empleo_referencia
-		// $smtp1->bind_param('ssssssssss', $id_financiera, $sueldos, $remesas, $otros_ingresos, $prestamos, $alquiler, $otros_egresos, $id_user);
-		// $smtp1->bind_param('sss', d.$nombre_conyugue, $identidad_conyugue, $id_user);
-		// $smtp1->execute();
+		$stmt1 = $conn->prepare("UPDATE referencias SET nombre_referencia = ?, direccion_referencia = ?, celular_referencia = ?, telefono_referencia= ?, empresa_labora_referencia=?, telefono_empleo_referencia=? WHERE id_referencia = ? and id_registro = ?");
+		$stmt1->bind_param('ssssssss', $nombre_referencia_2, $direccion_referencia_2, $celular_referencia_2, $telefono_referencia_2, $empresa_labora_referencia_2, $telefono_empleo_referencia_2, $id_referencia_2, $id_user);
+		$stmt1->execute();
 
-		if ($stmt->affected_rows > 0) {
+		if ($stmt->affected_rows > 0 || $stmt1->affected_rows > 0 || $stmt1->affected_rows = 0 || $stmt->affected_rows = 0) {
 			$respuesta = array(
 				//Esto es lo que se muestra en
 				//JSON.parse(xhr.responseText); console.log(respuesta);

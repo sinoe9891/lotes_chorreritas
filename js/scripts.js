@@ -597,6 +597,7 @@ function validarFicha(e) {
 		nacionalidad = document.querySelector('#nacionalidad').value,
 		genero = document.querySelector('#genero').value,
 		estado_civil = document.querySelector('#estado_civil').value,
+		pais_reside = document.querySelector('#pais_reside').value,
 		direccion = document.querySelector('#direccion').value,
 		ciudad = document.querySelector('#ciudad').value,
 		departamento = document.querySelector('#departamento').value,
@@ -668,6 +669,7 @@ function validarFicha(e) {
 		datos.append('nacionalidad', nacionalidad);
 		datos.append('genero', genero);
 		datos.append('estado_civil', estado_civil);
+		datos.append('pais_reside', pais_reside);
 		datos.append('direccion', direccion);
 		datos.append('ciudad', ciudad);
 		datos.append('departamento', departamento);
@@ -1692,7 +1694,7 @@ function editarRegistro(e) {
 	departamento_beneficiario = document.querySelector('#departamento_beneficiario').value,
 	celular_beneficiario = document.querySelector('#celular_beneficiario').value;
 	//Validar que el campo tenga algo escrito
-	if (nombres === '' || nombre_beneficiario === '' || identidad_beneficiario === '' || identidad === '') {
+	if (nombres === '') {
 		//validación Falló
 		Swal.fire({
 			icon: 'error',

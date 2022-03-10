@@ -9,6 +9,7 @@ $identidad = $_POST['identidad'];
 $nacionalidad = $_POST['nacionalidad'];
 $genero = $_POST['genero'];
 $estado_civil = $_POST['estado_civil'];
+$pais_reside = $_POST['pais_reside'];
 $direccion = $_POST['direccion'];
 $ciudad = $_POST['ciudad'];
 $departamento = $_POST['departamento'];
